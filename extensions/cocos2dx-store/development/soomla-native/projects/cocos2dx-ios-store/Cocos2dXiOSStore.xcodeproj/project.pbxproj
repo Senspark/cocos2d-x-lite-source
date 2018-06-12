@@ -1,0 +1,489 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		372B7431D09F1A3BAE7AF191 /* StoreAssetsBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 372B7487FC2A82DA39D1A6A4 /* StoreAssetsBridge.mm */; };
+		372B780B298D6D9E9EDA39E3 /* StoreAssetsBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 372B7C5609E67F3CE6D2ED65 /* StoreAssetsBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DC2A7AF1ACC68DF0021CE67 /* CCStoreBridgeBinderIos.mm in Sources */ = {isa = PBXBuildFile; fileRef = F89F723F1AB19E7F000ECC23 /* CCStoreBridgeBinderIos.mm */; };
+		9DC2A7B01ACC68DF0021CE67 /* StoreBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = F89F723E1AB19E7F000ECC23 /* StoreBridge.mm */; };
+		9DC2A7B11ACC68DF0021CE67 /* StoreTypeConsts.mm in Sources */ = {isa = PBXBuildFile; fileRef = F820C00D19DC4F8E0084BBA5 /* StoreTypeConsts.mm */; };
+		9DC2A7B21ACC68DF0021CE67 /* StoreAssetsBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 372B7487FC2A82DA39D1A6A4 /* StoreAssetsBridge.mm */; };
+		9DC2A7B41ACC68DF0021CE67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B3C5F2168C6D0C00161FAA /* Foundation.framework */; };
+		9DC2A7B61ACC68DF0021CE67 /* StoreTypeConsts.h in Headers */ = {isa = PBXBuildFile; fileRef = F820C00C19DC4F8E0084BBA5 /* StoreTypeConsts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DC2A7B71ACC68DF0021CE67 /* StoreBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = F89F72411AB19E7F000ECC23 /* StoreBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DC2A7B81ACC68DF0021CE67 /* CCStoreBridgeBinderIos.h in Headers */ = {isa = PBXBuildFile; fileRef = F89F72401AB19E7F000ECC23 /* CCStoreBridgeBinderIos.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DC2A7B91ACC68DF0021CE67 /* StoreAssetsBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 372B7C5609E67F3CE6D2ED65 /* StoreAssetsBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0B3C5F3168C6D0C00161FAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B3C5F2168C6D0C00161FAA /* Foundation.framework */; };
+		F820C00E19DC4F8E0084BBA5 /* StoreTypeConsts.h in Headers */ = {isa = PBXBuildFile; fileRef = F820C00C19DC4F8E0084BBA5 /* StoreTypeConsts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F820C00F19DC4F8E0084BBA5 /* StoreTypeConsts.mm in Sources */ = {isa = PBXBuildFile; fileRef = F820C00D19DC4F8E0084BBA5 /* StoreTypeConsts.mm */; };
+		F89F72421AB19E7F000ECC23 /* StoreBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = F89F723E1AB19E7F000ECC23 /* StoreBridge.mm */; };
+		F89F72431AB19E7F000ECC23 /* CCStoreBridgeBinderIos.mm in Sources */ = {isa = PBXBuildFile; fileRef = F89F723F1AB19E7F000ECC23 /* CCStoreBridgeBinderIos.mm */; };
+		F89F72441AB19E7F000ECC23 /* CCStoreBridgeBinderIos.h in Headers */ = {isa = PBXBuildFile; fileRef = F89F72401AB19E7F000ECC23 /* CCStoreBridgeBinderIos.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F89F72451AB19E7F000ECC23 /* StoreBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = F89F72411AB19E7F000ECC23 /* StoreBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		372B7487FC2A82DA39D1A6A4 /* StoreAssetsBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StoreAssetsBridge.mm; sourceTree = "<group>"; };
+		372B7C5609E67F3CE6D2ED65 /* StoreAssetsBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreAssetsBridge.h; sourceTree = "<group>"; };
+		9D1D39B719018BB0000EC503 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		9DC2A7BE1ACC68DF0021CE67 /* libCocos2dXiOSStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocos2dXiOSStore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0B3C5EF168C6D0C00161FAA /* libCocos2dXiOSStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocos2dXiOSStore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0B3C5F2168C6D0C00161FAA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F820C00C19DC4F8E0084BBA5 /* StoreTypeConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreTypeConsts.h; sourceTree = "<group>"; };
+		F820C00D19DC4F8E0084BBA5 /* StoreTypeConsts.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StoreTypeConsts.mm; sourceTree = "<group>"; };
+		F89F723E1AB19E7F000ECC23 /* StoreBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StoreBridge.mm; sourceTree = "<group>"; };
+		F89F723F1AB19E7F000ECC23 /* CCStoreBridgeBinderIos.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCStoreBridgeBinderIos.mm; sourceTree = "<group>"; };
+		F89F72401AB19E7F000ECC23 /* CCStoreBridgeBinderIos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCStoreBridgeBinderIos.h; sourceTree = "<group>"; };
+		F89F72411AB19E7F000ECC23 /* StoreBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreBridge.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9DC2A7B31ACC68DF0021CE67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DC2A7B41ACC68DF0021CE67 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0B3C5EC168C6D0C00161FAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0B3C5F3168C6D0C00161FAA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		372B7A44C0550E964CA7C86D /* StoreBridge */ = {
+			isa = PBXGroup;
+			children = (
+				F89F723E1AB19E7F000ECC23 /* StoreBridge.mm */,
+				F89F723F1AB19E7F000ECC23 /* CCStoreBridgeBinderIos.mm */,
+				F89F72401AB19E7F000ECC23 /* CCStoreBridgeBinderIos.h */,
+				F89F72411AB19E7F000ECC23 /* StoreBridge.h */,
+				F820C00C19DC4F8E0084BBA5 /* StoreTypeConsts.h */,
+				F820C00D19DC4F8E0084BBA5 /* StoreTypeConsts.mm */,
+				372B7C5609E67F3CE6D2ED65 /* StoreAssetsBridge.h */,
+				372B7487FC2A82DA39D1A6A4 /* StoreAssetsBridge.mm */,
+			);
+			path = StoreBridge;
+			sourceTree = "<group>";
+		};
+		9D3312E61977E12E00D59A76 /* SoomlaCocos2dx */ = {
+			isa = PBXGroup;
+			children = (
+				372B7A44C0550E964CA7C86D /* StoreBridge */,
+			);
+			path = SoomlaCocos2dx;
+			sourceTree = "<group>";
+		};
+		C0B3C5E4168C6D0C00161FAA = {
+			isa = PBXGroup;
+			children = (
+				9D3312E61977E12E00D59A76 /* SoomlaCocos2dx */,
+				9D1D39B719018BB0000EC503 /* Prefix.pch */,
+				C0B3C5F1168C6D0C00161FAA /* Frameworks */,
+				C0B3C5F0168C6D0C00161FAA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C0B3C5F0168C6D0C00161FAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C0B3C5EF168C6D0C00161FAA /* libCocos2dXiOSStore.a */,
+				9DC2A7BE1ACC68DF0021CE67 /* libCocos2dXiOSStore.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C0B3C5F1168C6D0C00161FAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0B3C5F2168C6D0C00161FAA /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9D64AAD0190653C40091D664 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F820C00E19DC4F8E0084BBA5 /* StoreTypeConsts.h in Headers */,
+				F89F72451AB19E7F000ECC23 /* StoreBridge.h in Headers */,
+				F89F72441AB19E7F000ECC23 /* CCStoreBridgeBinderIos.h in Headers */,
+				372B780B298D6D9E9EDA39E3 /* StoreAssetsBridge.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DC2A7B51ACC68DF0021CE67 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DC2A7B61ACC68DF0021CE67 /* StoreTypeConsts.h in Headers */,
+				9DC2A7B71ACC68DF0021CE67 /* StoreBridge.h in Headers */,
+				9DC2A7B81ACC68DF0021CE67 /* CCStoreBridgeBinderIos.h in Headers */,
+				9DC2A7B91ACC68DF0021CE67 /* StoreAssetsBridge.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9DC2A7AD1ACC68DF0021CE67 /* Cocos2dXiOSStoreWithJsb */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DC2A7BB1ACC68DF0021CE67 /* Build configuration list for PBXNativeTarget "Cocos2dXiOSStoreWithJsb" */;
+			buildPhases = (
+				9DC2A7AE1ACC68DF0021CE67 /* Sources */,
+				9DC2A7B31ACC68DF0021CE67 /* Frameworks */,
+				9DC2A7B51ACC68DF0021CE67 /* Headers */,
+				9DC2A7BA1ACC68DF0021CE67 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cocos2dXiOSStoreWithJsb;
+			productName = SoomlaIOSStore;
+			productReference = 9DC2A7BE1ACC68DF0021CE67 /* libCocos2dXiOSStore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C0B3C5EE168C6D0C00161FAA /* Cocos2dXiOSStore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0B3C5FD168C6D0C00161FAA /* Build configuration list for PBXNativeTarget "Cocos2dXiOSStore" */;
+			buildPhases = (
+				C0B3C5EB168C6D0C00161FAA /* Sources */,
+				C0B3C5EC168C6D0C00161FAA /* Frameworks */,
+				9D64AAD0190653C40091D664 /* Headers */,
+				C09762A81900726F000A4403 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cocos2dXiOSStore;
+			productName = SoomlaIOSStore;
+			productReference = C0B3C5EF168C6D0C00161FAA /* libCocos2dXiOSStore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C0B3C5E6168C6D0C00161FAA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = SOOMLA;
+			};
+			buildConfigurationList = C0B3C5E9168C6D0C00161FAA /* Build configuration list for PBXProject "Cocos2dXiOSStore" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C0B3C5E4168C6D0C00161FAA;
+			productRefGroup = C0B3C5F0168C6D0C00161FAA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C0B3C5EE168C6D0C00161FAA /* Cocos2dXiOSStore */,
+				9DC2A7AD1ACC68DF0021CE67 /* Cocos2dXiOSStoreWithJsb */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9DC2A7BA1ACC68DF0021CE67 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "##########################################\n#\n# c.f. http://stackoverflow.com/questions/3520977/build-fat-static-library-device-simulator-using-xcode-and-sdk-4\n#\n# Version 2.7\n#\n# Latest Change:\n# - Supports iPhone 5 / iPod Touch 5 (uses Apple's workaround to lipo bug)\n#\n# Purpose:\n#   Automatically create a Universal static library for iPhone + iPad + iPhone Simulator from within XCode\n#\n# Author: Adam Martin - http://twitter.com/redglassesapps\n# Based on: original script from Eonil (main changes: Eonil's script WILL NOT WORK in Xcode GUI - it WILL CRASH YOUR COMPUTER)\n#\n\nset -e\nset -o pipefail\n\n#################[ Tests: helps workaround any future bugs in Xcode ]########\n#\nDEBUG_THIS_SCRIPT=\"false\"\n\nif [ $DEBUG_THIS_SCRIPT = \"true\" ]\nthen\necho \"########### TESTS #############\"\necho \"Use the following variables when debugging this script; note that they may change on recursions\"\necho \"BUILD_DIR = $BUILD_DIR\"\necho \"BUILD_ROOT = $BUILD_ROOT\"\necho \"CONFIGURATION_BUILD_DIR = $CONFIGURATION_BUILD_DIR\"\necho \"BUILT_PRODUCTS_DIR = $BUILT_PRODUCTS_DIR\"\necho \"CONFIGURATION_TEMP_DIR = $CONFIGURATION_TEMP_DIR\"\necho \"TARGET_BUILD_DIR = $TARGET_BUILD_DIR\"\nfi\n\n#####################[ part 1 ]##################\n# First, work out the BASESDK version number (NB: Apple ought to report this, but they hide it)\n#    (incidental: searching for substrings in sh is a nightmare! Sob)\n\nSDK_VERSION=$(echo ${SDK_NAME} | grep -o '.\\{3\\}$')\n\n# Next, work out if we're in SIM or DEVICE\n\nif [ ${PLATFORM_NAME} = \"iphonesimulator\" ]\nthen\nOTHER_SDK_TO_BUILD=iphoneos${SDK_VERSION}\nelse\nOTHER_SDK_TO_BUILD=iphonesimulator${SDK_VERSION}\nfi\n\necho \"XCode has selected SDK: ${PLATFORM_NAME} with version: ${SDK_VERSION} (although back-targetting: ${IPHONEOS_DEPLOYMENT_TARGET})\"\necho \"...therefore, OTHER_SDK_TO_BUILD = ${OTHER_SDK_TO_BUILD}\"\n#\n#####################[ end of part 1 ]##################\n\n#####################[ part 2 ]##################\n#\n# IF this is the original invocation, invoke WHATEVER other builds are required\n#\n# Xcode is already building ONE target...\n#\n# ...but this is a LIBRARY, so Apple is wrong to set it to build just one.\n# ...we need to build ALL targets\n# ...we MUST NOT re-build the target that is ALREADY being built: Xcode WILL CRASH YOUR COMPUTER if you try this (infinite recursion!)\n#\n#\n# So: build ONLY the missing platforms/configurations.\n\nif [ \"true\" == ${ALREADYINVOKED:-false} ]\nthen\necho \"RECURSION: I am NOT the root invocation, so I'm NOT going to recurse\"\nelse\n# CRITICAL:\n# Prevent infinite recursion (Xcode sucks)\nexport ALREADYINVOKED=\"true\"\n\necho \"RECURSION: I am the root ... recursing all missing build targets NOW...\"\necho \"RECURSION: ...about to invoke: xcodebuild -configuration \\\"${CONFIGURATION}\\\" -project \\\"${PROJECT_NAME}.xcodeproj\\\" -target \\\"${TARGET_NAME}\\\" -sdk \\\"${OTHER_SDK_TO_BUILD}\\\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO\" BUILD_DIR=\\\"${BUILD_DIR}\\\" BUILD_ROOT=\\\"${BUILD_ROOT}\\\" SYMROOT=\\\"${SYMROOT}\\\"\n\nxcodebuild -configuration \"${CONFIGURATION}\" -project \"${PROJECT_NAME}.xcodeproj\" -target \"${TARGET_NAME}\" -sdk \"${OTHER_SDK_TO_BUILD}\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\"\n\nACTION=\"build\"\n\n#Merge all platform binaries as a fat binary for each configurations.\n\n# Calculate where the (multiple) built files are coming from:\nCURRENTCONFIG_DEVICE_DIR=${SYMROOT}/${CONFIGURATION}-iphoneos\nCURRENTCONFIG_SIMULATOR_DIR=${SYMROOT}/${CONFIGURATION}-iphonesimulator\n\necho \"Taking device build from: ${CURRENTCONFIG_DEVICE_DIR}\"\necho \"Taking simulator build from: ${CURRENTCONFIG_SIMULATOR_DIR}\"\n\nif [[ -z $CREATING_UNIVERSAL_DIR ]]\nthen\nCREATING_UNIVERSAL_DIR=${SYMROOT}/${CONFIGURATION}-universal\nfi\necho \"...I will output a universal build to: ${CREATING_UNIVERSAL_DIR}\"\n\n# ... remove the products of previous runs of this script\n#      NB: this directory is ONLY created by this script - it should be safe to delete!\n\n# rm -rf \"${CREATING_UNIVERSAL_DIR}\"\nmkdir -p \"${CREATING_UNIVERSAL_DIR}\"\n\n#\necho \"lipo: for current configuration (${CONFIGURATION}) creating output file: ${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\"\nxcrun -sdk iphoneos lipo -create -output \"${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_DEVICE_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_SIMULATOR_DIR}/${EXECUTABLE_NAME}\"\n\n#########\n#\n# Added: StackOverflow suggestion to also copy \"include\" files\n#    (untested, but should work OK)\n#\necho \"Fetching headers from ${PUBLIC_HEADERS_FOLDER_PATH}\"\necho \"  (if you embed your library project in another project, you will need to add\"\necho \"   a \"User Search Headers\" build setting of: (NB INCLUDE THE DOUBLE QUOTES BELOW!)\"\nif [ -d \"${CURRENTCONFIG_DEVICE_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}\" ]\nthen\nmkdir -p \"${CREATING_UNIVERSAL_DIR}/headers/${PROJECT_NAME}\"\n# * needs to be outside the double quotes?\ncp -r \"${CURRENTCONFIG_DEVICE_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\"* \"${CREATING_UNIVERSAL_DIR}/headers/${PROJECT_NAME}\"\nfi\nfi\n";
+		};
+		C09762A81900726F000A4403 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "##########################################\n#\n# c.f. http://stackoverflow.com/questions/3520977/build-fat-static-library-device-simulator-using-xcode-and-sdk-4\n#\n# Version 2.7\n#\n# Latest Change:\n# - Supports iPhone 5 / iPod Touch 5 (uses Apple's workaround to lipo bug)\n#\n# Purpose:\n#   Automatically create a Universal static library for iPhone + iPad + iPhone Simulator from within XCode\n#\n# Author: Adam Martin - http://twitter.com/redglassesapps\n# Based on: original script from Eonil (main changes: Eonil's script WILL NOT WORK in Xcode GUI - it WILL CRASH YOUR COMPUTER)\n#\n\nset -e\nset -o pipefail\n\n#################[ Tests: helps workaround any future bugs in Xcode ]########\n#\nDEBUG_THIS_SCRIPT=\"false\"\n\nif [ $DEBUG_THIS_SCRIPT = \"true\" ]\nthen\necho \"########### TESTS #############\"\necho \"Use the following variables when debugging this script; note that they may change on recursions\"\necho \"BUILD_DIR = $BUILD_DIR\"\necho \"BUILD_ROOT = $BUILD_ROOT\"\necho \"CONFIGURATION_BUILD_DIR = $CONFIGURATION_BUILD_DIR\"\necho \"BUILT_PRODUCTS_DIR = $BUILT_PRODUCTS_DIR\"\necho \"CONFIGURATION_TEMP_DIR = $CONFIGURATION_TEMP_DIR\"\necho \"TARGET_BUILD_DIR = $TARGET_BUILD_DIR\"\nfi\n\n#####################[ part 1 ]##################\n# First, work out the BASESDK version number (NB: Apple ought to report this, but they hide it)\n#    (incidental: searching for substrings in sh is a nightmare! Sob)\n\nSDK_VERSION=$(echo ${SDK_NAME} | grep -o '.\\{3\\}$')\n\n# Next, work out if we're in SIM or DEVICE\n\nif [ ${PLATFORM_NAME} = \"iphonesimulator\" ]\nthen\nOTHER_SDK_TO_BUILD=iphoneos${SDK_VERSION}\nelse\nOTHER_SDK_TO_BUILD=iphonesimulator${SDK_VERSION}\nfi\n\necho \"XCode has selected SDK: ${PLATFORM_NAME} with version: ${SDK_VERSION} (although back-targetting: ${IPHONEOS_DEPLOYMENT_TARGET})\"\necho \"...therefore, OTHER_SDK_TO_BUILD = ${OTHER_SDK_TO_BUILD}\"\n#\n#####################[ end of part 1 ]##################\n\n#####################[ part 2 ]##################\n#\n# IF this is the original invocation, invoke WHATEVER other builds are required\n#\n# Xcode is already building ONE target...\n#\n# ...but this is a LIBRARY, so Apple is wrong to set it to build just one.\n# ...we need to build ALL targets\n# ...we MUST NOT re-build the target that is ALREADY being built: Xcode WILL CRASH YOUR COMPUTER if you try this (infinite recursion!)\n#\n#\n# So: build ONLY the missing platforms/configurations.\n\nif [ \"true\" == ${ALREADYINVOKED:-false} ]\nthen\necho \"RECURSION: I am NOT the root invocation, so I'm NOT going to recurse\"\nelse\n# CRITICAL:\n# Prevent infinite recursion (Xcode sucks)\nexport ALREADYINVOKED=\"true\"\n\necho \"RECURSION: I am the root ... recursing all missing build targets NOW...\"\necho \"RECURSION: ...about to invoke: xcodebuild -configuration \\\"${CONFIGURATION}\\\" -project \\\"${PROJECT_NAME}.xcodeproj\\\" -target \\\"${TARGET_NAME}\\\" -sdk \\\"${OTHER_SDK_TO_BUILD}\\\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO\" BUILD_DIR=\\\"${BUILD_DIR}\\\" BUILD_ROOT=\\\"${BUILD_ROOT}\\\" SYMROOT=\\\"${SYMROOT}\\\"\n\nxcodebuild -configuration \"${CONFIGURATION}\" -project \"${PROJECT_NAME}.xcodeproj\" -target \"${TARGET_NAME}\" -sdk \"${OTHER_SDK_TO_BUILD}\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\"\n\nACTION=\"build\"\n\n#Merge all platform binaries as a fat binary for each configurations.\n\n# Calculate where the (multiple) built files are coming from:\nCURRENTCONFIG_DEVICE_DIR=${SYMROOT}/${CONFIGURATION}-iphoneos\nCURRENTCONFIG_SIMULATOR_DIR=${SYMROOT}/${CONFIGURATION}-iphonesimulator\n\necho \"Taking device build from: ${CURRENTCONFIG_DEVICE_DIR}\"\necho \"Taking simulator build from: ${CURRENTCONFIG_SIMULATOR_DIR}\"\n\nif [[ -z $CREATING_UNIVERSAL_DIR ]]\nthen\nCREATING_UNIVERSAL_DIR=${SYMROOT}/${CONFIGURATION}-universal\nfi\necho \"...I will output a universal build to: ${CREATING_UNIVERSAL_DIR}\"\n\n# ... remove the products of previous runs of this script\n#      NB: this directory is ONLY created by this script - it should be safe to delete!\n\n# rm -rf \"${CREATING_UNIVERSAL_DIR}\"\nmkdir -p \"${CREATING_UNIVERSAL_DIR}\"\n\n#\necho \"lipo: for current configuration (${CONFIGURATION}) creating output file: ${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\"\nxcrun -sdk iphoneos lipo -create -output \"${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_DEVICE_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_SIMULATOR_DIR}/${EXECUTABLE_NAME}\"\n\n#########\n#\n# Added: StackOverflow suggestion to also copy \"include\" files\n#    (untested, but should work OK)\n#\necho \"Fetching headers from ${PUBLIC_HEADERS_FOLDER_PATH}\"\necho \"  (if you embed your library project in another project, you will need to add\"\necho \"   a \"User Search Headers\" build setting of: (NB INCLUDE THE DOUBLE QUOTES BELOW!)\"\nif [ -d \"${CURRENTCONFIG_DEVICE_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}\" ]\nthen\nmkdir -p \"${CREATING_UNIVERSAL_DIR}/headers/${PROJECT_NAME}\"\n# * needs to be outside the double quotes?\ncp -r \"${CURRENTCONFIG_DEVICE_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\"* \"${CREATING_UNIVERSAL_DIR}/headers/${PROJECT_NAME}\"\nfi\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9DC2A7AE1ACC68DF0021CE67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DC2A7AF1ACC68DF0021CE67 /* CCStoreBridgeBinderIos.mm in Sources */,
+				9DC2A7B01ACC68DF0021CE67 /* StoreBridge.mm in Sources */,
+				9DC2A7B11ACC68DF0021CE67 /* StoreTypeConsts.mm in Sources */,
+				9DC2A7B21ACC68DF0021CE67 /* StoreAssetsBridge.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0B3C5EB168C6D0C00161FAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F89F72431AB19E7F000ECC23 /* CCStoreBridgeBinderIos.mm in Sources */,
+				F89F72421AB19E7F000ECC23 /* StoreBridge.mm in Sources */,
+				F820C00F19DC4F8E0084BBA5 /* StoreTypeConsts.mm in Sources */,
+				372B7431D09F1A3BAE7AF191 /* StoreAssetsBridge.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9DC2A7BC1ACC68DF0021CE67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SoomlaIOSStore.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOS2D_DEBUG=1",
+					CC_TARGET_OS_IPHONE,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../../../../cocos2d-x/cocos",
+					"$(SRCROOT)/../../../../../../cocos2d-x/cocos/base",
+					"$(SRCROOT)/../../../../../../cocos2d-x/cocos/2d",
+					"$(SRCROOT)/../../../../../../cocos2d-x/cocos/platform/ios",
+					"$(SRCROOT)/../../../../../../cocos2d-x/cocos/platform/ios/Simulation",
+					"$(SRCROOT)/../../../../../jansson",
+					"$(SRCROOT)/../../../submodules/ios-store/SoomlaiOSStore/**",
+					"$(SRCROOT)/../../../../../soomla-cocos2dx-core/build/ios/headers/**",
+					"$(SRCROOT)/../../../../../soomla-cocos2dx-core/Soomla/**",
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = headers/private;
+				PRODUCT_NAME = Cocos2dXiOSStore;
+				PUBLIC_HEADERS_FOLDER_PATH = headers/public;
+				SKIP_INSTALL = YES;
+				SYMROOT = out;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		9DC2A7BD1ACC68DF0021CE67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SoomlaIOSStore.dst;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = CC_TARGET_OS_IPHONE;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../../../../cocos2d-x/cocos",
+					"$(SRCROOT)/../../../../../../cocos2d-x/cocos/base",
+					"$(SRCROOT)/../../../../../../cocos2d-x/cocos/2d",
+					"$(SRCROOT)/../../../../../../cocos2d-x/cocos/platform/ios",
+					"$(SRCROOT)/../../../../../../cocos2d-x/cocos/platform/ios/Simulation",
+					"$(SRCROOT)/../../../../../jansson",
+					"$(SRCROOT)/../../../submodules/ios-store/SoomlaiOSStore/**",
+					"$(SRCROOT)/../../../../../soomla-cocos2dx-core/build/ios/headers/**",
+					"$(SRCROOT)/../../../../../soomla-cocos2dx-core/Soomla/**",
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = headers/private;
+				PRODUCT_NAME = Cocos2dXiOSStore;
+				PUBLIC_HEADERS_FOLDER_PATH = headers/public;
+				SKIP_INSTALL = YES;
+				SYMROOT = out;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		C0B3C5FB168C6D0C00161FAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C0B3C5FC168C6D0C00161FAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_PREFIX_HEADER = Prefix.pch;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C0B3C5FE168C6D0C00161FAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SoomlaIOSStore.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOS2D_DEBUG=1",
+					CC_TARGET_OS_IPHONE,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../../../../cocos",
+					"$(SRCROOT)/../../../../../../cocos/base",
+					"$(SRCROOT)/../../../../../../cocos/2d",
+					"$(SRCROOT)/../../../../../../cocos/platform/ios",
+					"$(SRCROOT)/../../../../../../cocos/platform/ios/Simulation",
+					"$(SRCROOT)/../../../../../../external/jansson",
+					"$(SRCROOT)/../../../submodules/ios-store/SoomlaiOSStore/**",
+					"$(SRCROOT)/../../../../../soomla-cocos2dx-core/build/ios/headers/**",
+					"$(SRCROOT)/../../../../../soomla-cocos2dx-core/Soomla/**",
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = headers/private;
+				PRODUCT_NAME = Cocos2dXiOSStore;
+				PUBLIC_HEADERS_FOLDER_PATH = headers/public;
+				SKIP_INSTALL = YES;
+				SYMROOT = out;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		C0B3C5FF168C6D0C00161FAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SoomlaIOSStore.dst;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = CC_TARGET_OS_IPHONE;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../../../../cocos",
+					"$(SRCROOT)/../../../../../../cocos/base",
+					"$(SRCROOT)/../../../../../../cocos/2d",
+					"$(SRCROOT)/../../../../../../cocos/platform/ios",
+					"$(SRCROOT)/../../../../../../cocos/platform/ios/Simulation",
+					"$(SRCROOT)/../../../../../../external/jansson",
+					"$(SRCROOT)/../../../submodules/ios-store/SoomlaiOSStore/**",
+					"$(SRCROOT)/../../../../../soomla-cocos2dx-core/build/ios/headers/**",
+					"$(SRCROOT)/../../../../../soomla-cocos2dx-core/Soomla/**",
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = headers/private;
+				PRODUCT_NAME = Cocos2dXiOSStore;
+				PUBLIC_HEADERS_FOLDER_PATH = headers/public;
+				SKIP_INSTALL = YES;
+				SYMROOT = out;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9DC2A7BB1ACC68DF0021CE67 /* Build configuration list for PBXNativeTarget "Cocos2dXiOSStoreWithJsb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DC2A7BC1ACC68DF0021CE67 /* Debug */,
+				9DC2A7BD1ACC68DF0021CE67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0B3C5E9168C6D0C00161FAA /* Build configuration list for PBXProject "Cocos2dXiOSStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0B3C5FB168C6D0C00161FAA /* Debug */,
+				C0B3C5FC168C6D0C00161FAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0B3C5FD168C6D0C00161FAA /* Build configuration list for PBXNativeTarget "Cocos2dXiOSStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0B3C5FE168C6D0C00161FAA /* Debug */,
+				C0B3C5FF168C6D0C00161FAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C0B3C5E6168C6D0C00161FAA /* Project object */;
+}

@@ -1,0 +1,16 @@
+.DS_Store
+.idea
+local.properties
+TAGS
+out
+xcuserdata
+build/
+
+build.log
+
+
+## Other
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint

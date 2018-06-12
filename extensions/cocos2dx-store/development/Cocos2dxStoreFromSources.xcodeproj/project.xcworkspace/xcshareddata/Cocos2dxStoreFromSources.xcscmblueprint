@@ -1,0 +1,44 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "7F41E3A86218147E742AB88280559E2C4A837E7E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3BCFCB0DF49FF8218BCAC4EE276A138C20D29D13" : 9223372036854775807,
+    "852ED3691A47A99B0D19C820A500AE9772B2A44E" : 9223372036854775807,
+    "7F41E3A86218147E742AB88280559E2C4A837E7E" : 9223372036854775807,
+    "2C4873118A6CB67B851C6116EFA92F06D40C75EA" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "00B2271C-303A-4290-86C0-1F32790D062F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3BCFCB0DF49FF8218BCAC4EE276A138C20D29D13" : "cocos2dx-store\/development\/submodules\/ios-store\/",
+    "852ED3691A47A99B0D19C820A500AE9772B2A44E" : "..",
+    "7F41E3A86218147E742AB88280559E2C4A837E7E" : "cocos2dx-store\/",
+    "2C4873118A6CB67B851C6116EFA92F06D40C75EA" : "..\/.."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Cocos2dxStoreFromSources",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "development\/Cocos2dxStoreFromSources.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/senspark\/gold-miner-vegas.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2C4873118A6CB67B851C6116EFA92F06D40C75EA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:soomla\/ios-store.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3BCFCB0DF49FF8218BCAC4EE276A138C20D29D13"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:soomla\/cocos2dx-store.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7F41E3A86218147E742AB88280559E2C4A837E7E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cocos2d\/cocos2d-x.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "852ED3691A47A99B0D19C820A500AE9772B2A44E"
+    }
+  ]
+}

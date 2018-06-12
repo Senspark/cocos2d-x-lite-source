@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+cd $DIR
+
+build=../build/android
+
+rm -rf $build
+mkdir -p $build
+
+soomla-native/projects/cocos2dx-android-core/build_all
+
+cp -R submodules/soomla-android-core/build/* $build/
+cp -R soomla-native/projects/cocos2dx-android-core/build/* $build/
+
+cd - > /dev/null

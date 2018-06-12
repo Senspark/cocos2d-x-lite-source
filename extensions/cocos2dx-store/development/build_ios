@@ -1,0 +1,21 @@
+#!/bin/sh
+set -e
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+cd $DIR
+
+build=../build/ios
+build_headers=$build/headers
+
+rm -rf $build
+mkdir -p $build
+mkdir -p $build_headers
+
+soomla-native/projects/cocos2dx-ios-store/build_all
+
+cp -R submodules/ios-store/build/* $build/
+cp -R soomla-native/projects/cocos2dx-ios-store/build/* $build/
+
+cp -L submodules/ios-store/build/libSoomlaiOSStore.a $build/
+cp -RL submodules/ios-store/build/headers/SoomlaiOSStore $build_headers/
+
+cd - > /dev/null
