@@ -171,6 +171,12 @@ using namespace cocos2d::experimental::ui;
 {
     if(_videoPlayer != nullptr)
     {
+        // vinhnh: fix 11.3, ios send wrong notification while playing video
+        if ([self.moviePlayer playbackState] == MPMoviePlaybackStatePlaying)
+        {
+            return;
+        }
+        
         if([self.moviePlayer playbackState] != MPMoviePlaybackStateStopped)
         {
             _videoPlayer->onPlayEvent((int)VideoPlayer::EventType::COMPLETED);
