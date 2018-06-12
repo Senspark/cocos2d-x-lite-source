@@ -435,18 +435,18 @@ Size NodeLoader::parsePropTypeSize(Node * /*pNode*/, Node * pParent, CCBReader *
         }
         case CCBReader::SizeType::PERCENT:
         {
-            width = (int)(containerSize.width * width / 100.0f);
-            height = (int)(containerSize.height * height / 100.0f);
+            width = containerSize.width * width / 100.0f;
+            height = containerSize.height * height / 100.0f;
             break;
         }
         case CCBReader::SizeType::HORIZONTAL_PERCENT:
         {
-            width = (int)(containerSize.width * width / 100.0f);
+            width = containerSize.width * width / 100.0f;
             break;
         }
         case CCBReader::SizeType::VERTICAL_PERCENT:
         {
-            height = (int)(containerSize.height * height / 100.0f);
+            height = containerSize.height * height / 100.0f;
             break;
         }
         case CCBReader::SizeType::MULTIPLY_RESOLUTION:

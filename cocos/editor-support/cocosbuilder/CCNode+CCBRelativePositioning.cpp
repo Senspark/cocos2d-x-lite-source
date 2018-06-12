@@ -29,8 +29,8 @@ CC_DLL Vec2 getAbsolutePosition(const Vec2 &pt, CCBReader::PositionType type, co
     }
     else if (type == CCBReader::PositionType::PERCENT)
     {
-        absPt.x = (int)(containerSize.width * pt.x / 100.0f);
-        absPt.y = (int)(containerSize.height * pt.y / 100.0f);
+        absPt.x = containerSize.width * pt.x / 100.0f;
+        absPt.y = containerSize.height * pt.y / 100.0f;
     }
     else if (type == CCBReader::PositionType::MULTIPLY_RESOLUTION)
     {
