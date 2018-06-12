@@ -241,7 +241,7 @@ LOCAL_STATIC_LIBRARIES += cocos_tiff_static
 LOCAL_STATIC_LIBRARIES += cocos_webp_static
 LOCAL_STATIC_LIBRARIES += cocos_zlib_static
 LOCAL_STATIC_LIBRARIES += cocos_ssl_static
-LOCAL_STATIC_LIBRARIES += bullet_static
+# LOCAL_STATIC_LIBRARIES += bullet_static
 
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dxandroid_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cpufeatures
@@ -285,8 +285,8 @@ $(call import-module, cocos/network)
 $(call import-module, cocos/platform/android)
 $(call import-module, cocos/ui)
 $(call import-module, extensions)
-$(call import-module, external/Box2D)
-$(call import-module, external/bullet/prebuilt/android)
+# $(call import-module, external/Box2D)
+# $(call import-module, external/bullet/prebuilt/android)
 # $(call import-module, external/curl/prebuilt/android)
 $(call import-module, external/freetype2/prebuilt/android)
 $(call import-module, external/jpeg/prebuilt/android)
