@@ -161,7 +161,8 @@ using namespace cocos2d::experimental::ui;
 
     auto view = cocos2d::Director::getInstance()->getOpenGLView();
     auto eaglview = (CCEAGLView *) view->getEAGLView();
-    [eaglview addSubview:self.moviePlayer.view];
+//    [eaglview addSubview:self.moviePlayer.view];
+    [[eaglview superview] insertSubview:self.moviePlayer.view atIndex:0];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoFinished:) name:MPMoviePlayerPlaybackDidFinishNotification object:self.moviePlayer];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playStateChange) name:MPMoviePlayerPlaybackStateDidChangeNotification object:self.moviePlayer];
