@@ -164,6 +164,15 @@ namespace experimental{
             virtual void addEventListener(const VideoPlayer::ccVideoPlayerCallback& callback);
             
             /**
+             * Sets whether the widget is touch enabled.
+             *
+             * The default value is false, a widget is default to touch disabled.
+             *
+             * @param enabled   True if the widget is touch enabled, false if the widget is touch disabled.
+             */
+            virtual void setTouchEnabled(bool enabled) override;
+            
+            /**
              * @brief A function which will be called when video is playing.
              *
              * @param event @see VideoPlayer::EventType.

@@ -31,6 +31,7 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.MediaController.MediaPlayerControl;
 
@@ -91,7 +92,9 @@ public class Cocos2dxVideoView extends SurfaceView implements MediaPlayerControl
     protected boolean mFullScreenEnabled = false;
     protected int mFullScreenWidth = 0;
     protected int mFullScreenHeight = 0;
-    
+
+    protected boolean mTouchEnabled = true;
+
     private int mViewTag = 0;
     
     public Cocos2dxVideoView(Cocos2dxActivity activity,int tag) {
@@ -194,9 +197,17 @@ public class Cocos2dxVideoView extends SurfaceView implements MediaPlayerControl
         mCurrentState = STATE_IDLE;
         mTargetState  = STATE_IDLE;
     }
-    
+
+    public void setTouchEnabled(boolean enabled) {
+        mTouchEnabled = enabled;
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if (!mTouchEnabled) {
+            return false;
+        }
+
         if((event.getAction() & MotionEvent.ACTION_MASK) == MotionEvent.ACTION_UP)
         {
             if (isPlaying()) {
