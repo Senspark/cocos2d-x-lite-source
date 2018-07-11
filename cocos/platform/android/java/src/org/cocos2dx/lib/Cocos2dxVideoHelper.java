@@ -65,6 +65,7 @@ public class Cocos2dxVideoHelper {
     private final static int VideoTaskRestart = 10;
     private final static int VideoTaskKeepRatio = 11;
     private final static int VideoTaskFullScreen = 12;
+    private final static int VideoTaskSetTouchEnabled = 1001;
     final static int KeyEventBack = 1000;
     
     static class VideoHandler extends Handler{
@@ -154,6 +155,11 @@ public class Cocos2dxVideoHelper {
                 } else {
                     helper._setVideoKeepRatio(msg.arg1, false);
                 }
+                break;
+            }
+            case VideoTaskSetTouchEnabled: {
+                Cocos2dxVideoHelper helper = mReference.get();
+                helper._setTouchEnabled(msg.arg1, msg.arg2 == 1);
                 break;
             }
             case KeyEventBack: {
@@ -430,6 +436,26 @@ public class Cocos2dxVideoHelper {
         Cocos2dxVideoView videoView = sVideoViews.get(index);
         if (videoView != null) {
             videoView.setKeepRatio(enable);
+        }
+    }
+
+    public static void setTouchEnabled(int index, boolean enabled) {
+        Message msg = new Message();
+        msg.what = VideoTaskSetTouchEnabled;
+        msg.arg1 = index;
+        if (enabled) {
+            msg.arg2 = 1;
+        }
+        else {
+            msg.arg2 = 0;
+        }
+        mVideoHandler.sendMessage(msg);
+    }
+
+    private void _setTouchEnabled(int index, boolean enable) {
+        Cocos2dxVideoView videoView = sVideoViews.valueAt(index);
+        if (videoView != null) {
+            videoView.setTouchEnabled(enable);
         }
     }
 }

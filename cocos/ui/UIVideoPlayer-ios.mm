@@ -444,6 +444,11 @@ void VideoPlayer::addEventListener(const VideoPlayer::ccVideoPlayerCallback& cal
     _eventCallback = callback;
 }
 
+void VideoPlayer::setTouchEnabled(bool enabled)
+{
+    cocos2d::ui::Widget::setTouchEnabled(enabled);
+}
+
 void VideoPlayer::onPlayEvent(int event)
 {
     if (event == (int)VideoPlayer::EventType::PLAYING) {
