@@ -1,9 +1,0 @@
-.DS_Store
-.idea
-local.properties
-TAGS
-out
-xcuserdata
-build/
-
-build.log
