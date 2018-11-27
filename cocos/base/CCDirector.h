@@ -309,7 +309,7 @@ public:
      * ONLY call it if there is a running scene.
      * Reference: https://discuss.cocos2d-x.org/t/tip-implement-popscene-with-transition/3647/21
      */
-    void popScene(const std::function<Scene*(Scene* scene)> &transition);
+    void popScene(const std::function<Scene*(Scene* scene)>& transition);
 
     /** 
      * Pops out all scenes from the stack until the root scene in the queue.
