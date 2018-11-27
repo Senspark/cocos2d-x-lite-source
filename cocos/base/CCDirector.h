@@ -301,6 +301,15 @@ public:
      * ONLY call it if there is a running scene.
      */
     void popScene();
+    
+    /**
+     * Pops out a scene from the stack with transition scene
+     * This scene will replace the running one.
+     * The running scene will be deleted. If there are no more scenes in the stack the execution is terminated.
+     * ONLY call it if there is a running scene.
+     * Reference: https://discuss.cocos2d-x.org/t/tip-implement-popscene-with-transition/3647/21
+     */
+    void popScene(const std::function<Scene*(Scene* scene)> &transition);
 
     /** 
      * Pops out all scenes from the stack until the root scene in the queue.
