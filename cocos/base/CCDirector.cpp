@@ -958,6 +958,26 @@ void Director::popScene(void)
     }
 }
 
+void Director::popScene(const std::function<Scene*(Scene* scene)>& transition) {
+    CCASSERT(_runningScene != nullptr, "running scene should not null");
+
+#if CC_ENABLE_GC_FOR_NATIVE_OBJECTS
+    auto sEngine = ScriptEngineManager::getInstance()->getScriptEngine();
+    if (sEngine) {
+        sEngine->releaseScriptObject(this, _scenesStack.back());
+    }
+#endif // CC_ENABLE_GC_FOR_NATIVE_OBJECTS
+    _scenesStack.popBack();
+    ssize_t c = _scenesStack.size();
+
+    if (c == 0) {
+        end();
+    } else {
+        _sendCleanupToScene = true;
+        _nextScene = transition(_scenesStack.at(c - 1));
+    }
+}
+
 void Director::popToRootScene(void)
 {
     popToSceneStackLevel(1);
