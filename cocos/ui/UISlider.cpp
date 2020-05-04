@@ -1,5 +1,6 @@
 /****************************************************************************
-Copyright (c) 2013-2017 Chukong Technologies Inc.
+Copyright (c) 2013-2016 Chukong Technologies Inc.
+Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
 
 http://www.cocos2d-x.org
 
@@ -27,7 +28,6 @@ THE SOFTWARE.
 #include "ui/UIHelper.h"
 #include "2d/CCSprite.h"
 #include "2d/CCCamera.h"
-#include "editor-support/cocostudio/CocosStudioExtension.h"
 
 NS_CC_BEGIN
 
@@ -454,13 +454,24 @@ void Slider::setPercent(int percent)
     {
         percent = 0;
     }
-    _percent = percent;
-    float res = 1.0 * percent / _maxPercent;
+
+    // Only send event if value has changed
+    if (_percent != percent)
+    {
+        _percent = percent;
+        updateVisualSlider();
+        percentChangedEvent(EventType::ON_PERCENTAGE_CHANGED);
+    }
+}
+
+void Slider::updateVisualSlider()
+{
+    float res = 1.0 * _percent / _maxPercent;
     float dis = _barLength * res;
     _slidBallRenderer->setPosition(dis, _contentSize.height / 2.0f);
     if (_scale9Enabled)
     {
-        _progressBarRenderer->setPreferredSize(Size(dis,_contentSize.height));
+        _progressBarRenderer->setPreferredSize(Size(dis, _contentSize.height));
     }
     else
     {
@@ -497,13 +508,11 @@ void Slider::onTouchMoved(Touch *touch, Event* /*unusedEvent*/)
 {
     _touchMovePosition = touch->getLocation();
     setPercent(getPercentWithBallPos(_touchMovePosition));
-    percentChangedEvent(EventType::ON_PERCENTAGE_CHANGED);
 }
 
 void Slider::onTouchEnded(Touch *touch, Event *unusedEvent)
 {
     Widget::onTouchEnded(touch, unusedEvent);
-    percentChangedEvent(EventType::ON_PERCENTAGE_CHANGED);
     percentChangedEvent(EventType::ON_SLIDEBALL_UP);
 }
 
@@ -623,7 +632,7 @@ void Slider::barRendererScaleChangedWithSize()
         }
     }
     _barRenderer->setPosition(_contentSize.width / 2.0f, _contentSize.height / 2.0f);
-    setPercent(_percent);
+    updateVisualSlider();
 }
 
 void Slider::progressBarRendererScaleChangedWithSize()
@@ -665,7 +674,7 @@ void Slider::progressBarRendererScaleChangedWithSize()
         }
     }
     _progressBarRenderer->setPosition(0.0f, _contentSize.height / 2.0f);
-    setPercent(_percent);
+    updateVisualSlider();
 }
 
 void Slider::onPressStateChangedToNormal()
@@ -778,42 +787,6 @@ Sprite* Slider::getSlidBallDisabledRenderer() const {
 
 Node* Slider::getSlidBallRenderer() const {
     return _slidBallRenderer;
-}
-
-ResourceData Slider::getBackFile()
-{
-    ResourceData rData;
-    rData.type = (int)_barTexType;
-    rData.file = _textureFile;
-    return rData;
-}
-ResourceData Slider::getProgressBarFile()
-{
-    ResourceData rData;
-    rData.type = (int)_progressBarTexType;
-    rData.file = _progressBarTextureFile;
-    return rData;
-}
-ResourceData Slider::getBallNormalFile()
-{
-    ResourceData rData;
-    rData.type = (int)_ballNTexType;
-    rData.file = _slidBallNormalTextureFile;
-    return rData;
-}
-ResourceData Slider::getBallPressedFile()
-{
-    ResourceData rData;
-    rData.type = (int)_ballPTexType;
-    rData.file = _slidBallPressedTextureFile;
-    return rData;
-}
-ResourceData Slider::getBallDisabledFile()
-{
-    ResourceData rData;
-    rData.type = (int)_ballDTexType;
-    rData.file = _slidBallDisabledTextureFile;
-    return rData;
 }
 
 }

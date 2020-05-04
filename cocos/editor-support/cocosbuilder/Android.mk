@@ -1,15 +1,13 @@
 LOCAL_PATH := $(call my-dir)
-
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := cocosbuilder_static
+LOCAL_MODULE := ccb
 
-LOCAL_MODULE_FILENAME := libcocosbuilder
+LOCAL_MODULE_FILENAME := libccb
 
 LOCAL_ARM_MODE := arm
 
-LOCAL_SRC_FILES := \
-CCBAnimationManager.cpp \
+LOCAL_SRC_FILES := CCBAnimationManager.cpp \
 CCBFileLoader.cpp \
 CCBKeyframe.cpp \
 CCBReader.cpp \
@@ -34,10 +32,10 @@ CCSpriteLoader.cpp
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/..
 
-LOCAL_C_INCLUDES := \
-$(LOCAL_PATH)/.. \
-$(LOCAL_PATH)/../../2d
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/.. \
+                    $(LOCAL_PATH)/../../2d \
+                    
 
-LOCAL_STATIC_LIBRARIES := cocos_extension_static
+LOCAL_STATIC_LIBRARIES := ccets
 
 include $(BUILD_STATIC_LIBRARY)

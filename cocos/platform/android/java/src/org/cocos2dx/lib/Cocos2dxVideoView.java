@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2006 The Android Open Source Project
- * Copyright (c) 2014-2017 Chukong Technologies Inc.
+ * Copyright (c) 2014-2016 Chukong Technologies Inc.
+ * Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +32,6 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.MediaController.MediaPlayerControl;
 
@@ -92,9 +92,7 @@ public class Cocos2dxVideoView extends SurfaceView implements MediaPlayerControl
     protected boolean mFullScreenEnabled = false;
     protected int mFullScreenWidth = 0;
     protected int mFullScreenHeight = 0;
-
-    protected boolean mTouchEnabled = true;
-
+    
     private int mViewTag = 0;
     
     public Cocos2dxVideoView(Cocos2dxActivity activity,int tag) {
@@ -197,18 +195,10 @@ public class Cocos2dxVideoView extends SurfaceView implements MediaPlayerControl
         mCurrentState = STATE_IDLE;
         mTargetState  = STATE_IDLE;
     }
-
-    public void setTouchEnabled(boolean enabled) {
-        mTouchEnabled = enabled;
-    }
-
+    
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (!mTouchEnabled) {
-            return false;
-        }
-
-        if((event.getAction() & MotionEvent.ACTION_MASK) == MotionEvent.ACTION_UP)
+        if( mUserInputEnabled && ((event.getAction() & MotionEvent.ACTION_MASK) == MotionEvent.ACTION_UP))
         {
             if (isPlaying()) {
                 pause();
@@ -221,6 +211,8 @@ public class Cocos2dxVideoView extends SurfaceView implements MediaPlayerControl
     }
     
     private boolean mIsAssetRouse = false;
+    private boolean mLooping = false;
+    private boolean mUserInputEnabled = true;
     private String mVideoFilePath = null;
     private static final String AssetResourceRoot = "assets/";
     
@@ -255,6 +247,14 @@ public class Cocos2dxVideoView extends SurfaceView implements MediaPlayerControl
         openVideo();
         requestLayout();
         invalidate();
+    }
+
+    public void setLooping(boolean looping) {
+        mLooping = looping;
+    }
+
+    public void setUserInputEnabled(boolean enableInput) {
+        mUserInputEnabled = enableInput;
     }
     
     public void stopPlayback() {
@@ -301,12 +301,16 @@ public class Cocos2dxVideoView extends SurfaceView implements MediaPlayerControl
                 mMediaPlayer.setDisplay(mSurfaceHolder);
                 mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 mMediaPlayer.setScreenOnWhilePlaying(true);
+                mMediaPlayer.setLooping(mLooping); // CROWDSTAR
             //}
             
             mDuration = -1;
             mCurrentBufferPercentage = 0;
             if (mIsAssetRouse) {
                 AssetFileDescriptor afd = mCocos2dxActivity.getAssets().openFd(mVideoFilePath);
+                if (afd == null && Cocos2dxHelper.getObbFile() != null) {
+                    afd = Cocos2dxHelper.getObbFile() .getAssetFileDescriptor(mVideoFilePath);
+                }
                 mMediaPlayer.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
             } else {
                 mMediaPlayer.setDataSource(mCocos2dxActivity, mVideoUri);
@@ -435,8 +439,13 @@ public class Cocos2dxVideoView extends SurfaceView implements MediaPlayerControl
         public void onCompletion(MediaPlayer mp) {
             mCurrentState = STATE_PLAYBACK_COMPLETED;
             mTargetState = STATE_PLAYBACK_COMPLETED;
-            
-            release(true);
+
+            // Do not release the player if we are looping as we still need the
+            // the player resources to exist
+            if (!mLooping) {
+                release(true);
+            }
+
             if (mOnVideoEventListener != null) {
                 mOnVideoEventListener.onVideoEvent(mViewTag,EVENT_COMPLETED);
             }
@@ -448,7 +457,8 @@ public class Cocos2dxVideoView extends SurfaceView implements MediaPlayerControl
     private static final int EVENT_PAUSED = 1;
     private static final int EVENT_STOPPED = 2;
     private static final int EVENT_COMPLETED = 3;
-    
+    private static final int EVENT_ERROR = 4;
+
     public interface OnVideoEventListener
     {
         void onVideoEvent(int tag,int event);
@@ -460,6 +470,10 @@ public class Cocos2dxVideoView extends SurfaceView implements MediaPlayerControl
             Log.d(TAG, "Error: " + framework_err + "," + impl_err);
             mCurrentState = STATE_ERROR;
             mTargetState = STATE_ERROR;
+
+            if (mOnVideoEventListener != null) {
+                mOnVideoEventListener.onVideoEvent(mViewTag, EVENT_ERROR);
+            }
 
             /* If an error handler has been supplied, use it and finish. */
             if (mOnErrorListener != null) {

@@ -1,5 +1,6 @@
 /****************************************************************************
-Copyright (c) 2013-2017 Chukong Technologies Inc.
+Copyright (c) 2013-2016 Chukong Technologies Inc.
+Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
 
 http://www.cocos2d-x.org
 
@@ -38,7 +39,6 @@ THE SOFTWARE.
 #include "2d/CCSprite.h"
 #include "base/CCEventFocus.h"
 #include "base/CCStencilStateManager.h"
-#include "editor-support/cocostudio/CocosStudioExtension.h"
 
 
 NS_CC_BEGIN
@@ -1905,14 +1905,6 @@ void Layout::setCameraMask(unsigned short mask, bool applyChildren)
     if (_clippingStencil){
         _clippingStencil->setCameraMask(mask, applyChildren);
     }
-}
-    
-ResourceData Layout::getRenderFile()
-{
-    ResourceData rData;
-    rData.type = (int)_bgImageTexType;
-    rData.file = _backGroundImageFileName;
-    return rData;
 }
 
 }

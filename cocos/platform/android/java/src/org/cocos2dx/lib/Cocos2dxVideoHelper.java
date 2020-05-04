@@ -1,5 +1,6 @@
 /****************************************************************************
-Copyright (c) 2014-2017 Chukong Technologies Inc.
+Copyright (c) 2014-2016 Chukong Technologies Inc.
+Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
 
 http://www.cocos2d-x.org
 
@@ -65,7 +66,8 @@ public class Cocos2dxVideoHelper {
     private final static int VideoTaskRestart = 10;
     private final static int VideoTaskKeepRatio = 11;
     private final static int VideoTaskFullScreen = 12;
-    private final static int VideoTaskSetTouchEnabled = 1001;
+    private final static int VideoTaskSetLooping = 13;
+     private final static int VideoTaskSetUserInputEnabled = 14;
     final static int KeyEventBack = 1000;
     
     static class VideoHandler extends Handler{
@@ -157,16 +159,24 @@ public class Cocos2dxVideoHelper {
                 }
                 break;
             }
-            case VideoTaskSetTouchEnabled: {
+            case VideoTaskSetLooping: {
                 Cocos2dxVideoHelper helper = mReference.get();
-                helper._setTouchEnabled(msg.arg1, msg.arg2 == 1);
+                helper._setLooping(msg.arg1, msg.arg2 != 0);
                 break;
             }
+
+            case VideoTaskSetUserInputEnabled: {
+                Cocos2dxVideoHelper helper = mReference.get();
+                helper._setUserInputEnabled(msg.arg1, msg.arg2 != 0);
+                break;
+            }
+            
             case KeyEventBack: {
                 Cocos2dxVideoHelper helper = mReference.get();
                 helper.onBackKeyEvent();
                 break;
-            }
+            }            
+
             default:
                 break;
             }
@@ -218,7 +228,7 @@ public class Cocos2dxVideoHelper {
                 FrameLayout.LayoutParams.WRAP_CONTENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT);
         mLayout.addView(videoView, lParams);
-        videoView.setZOrderOnTop(false);
+        videoView.setZOrderOnTop(true);
         videoView.setOnCompletionListener(videoEventListener);
     }
     
@@ -260,6 +270,36 @@ public class Cocos2dxVideoHelper {
             default:
                 break;
             }
+        }
+    }
+
+    public static void setLooping(int index, boolean looping) {
+        Message msg = new Message();
+        msg.what = VideoTaskSetLooping;
+        msg.arg1 = index;
+        msg.arg2 = looping ? 1 : 0;
+        mVideoHandler.sendMessage(msg);
+    }
+
+    private void _setLooping(int index, boolean looping) {
+        Cocos2dxVideoView videoView = sVideoViews.get(index);
+        if (videoView != null) {
+            videoView.setLooping(looping);
+        }
+    }
+
+    public static void setUserInputEnabled(int index, boolean enableInput) {
+        Message msg = new Message();
+        msg.what = VideoTaskSetUserInputEnabled;
+        msg.arg1 = index;
+        msg.arg2 = enableInput ? 1 : 0;
+        mVideoHandler.sendMessage(msg);
+    }
+
+    private void _setUserInputEnabled(int index, boolean enableInput) {
+        Cocos2dxVideoView videoView = sVideoViews.get(index);
+        if (videoView != null) {
+            videoView.setUserInputEnabled(enableInput);
         }
     }
     
@@ -436,26 +476,6 @@ public class Cocos2dxVideoHelper {
         Cocos2dxVideoView videoView = sVideoViews.get(index);
         if (videoView != null) {
             videoView.setKeepRatio(enable);
-        }
-    }
-
-    public static void setTouchEnabled(int index, boolean enabled) {
-        Message msg = new Message();
-        msg.what = VideoTaskSetTouchEnabled;
-        msg.arg1 = index;
-        if (enabled) {
-            msg.arg2 = 1;
-        }
-        else {
-            msg.arg2 = 0;
-        }
-        mVideoHandler.sendMessage(msg);
-    }
-
-    private void _setTouchEnabled(int index, boolean enable) {
-        Cocos2dxVideoView videoView = sVideoViews.valueAt(index);
-        if (videoView != null) {
-            videoView.setTouchEnabled(enable);
         }
     }
 }

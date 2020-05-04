@@ -1,5 +1,6 @@
 /****************************************************************************
-Copyright (c) 2013-2017 Chukong Technologies Inc.
+Copyright (c) 2013-2016 Chukong Technologies Inc.
+Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
 
 http://www.cocos2d-x.org
 
@@ -26,7 +27,6 @@ THE SOFTWARE.
 #include "ui/UIHelper.h"
 #include "ui/UIScale9Sprite.h"
 #include "2d/CCSprite.h"
-#include "editor-support/cocostudio/CocosStudioExtension.h"
 
 NS_CC_BEGIN
 
@@ -45,7 +45,6 @@ LoadingBar::LoadingBar():
 _direction(Direction::LEFT),
 _percent(100.0),
 _totalLength(0),
-_textureFile(""),
 _barRenderer(nullptr),
 _renderBarTexType(TextureResType::LOCAL),
 _barRendererTextureSize(Size::ZERO),
@@ -53,7 +52,8 @@ _originalRect(Rect::ZERO),
 _scale9Enabled(false),
 _prevIgnoreSize(true),
 _capInsets(Rect::ZERO),
-_barRendererAdaptDirty(true)
+_barRendererAdaptDirty(true),
+_textureFile("")
 {
 }
 
@@ -428,14 +428,6 @@ void LoadingBar::copySpecialProperties(Widget *widget)
         _totalLength = loadingBar->_totalLength;
         _barRendererTextureSize = loadingBar->_barRendererTextureSize;
     }
-}
-
-ResourceData LoadingBar::getRenderFile()
-{
-    ResourceData rData;
-    rData.type = (int)_renderBarTexType;
-    rData.file = _textureFile;
-    return rData;
 }
 
 }

@@ -1,31 +1,38 @@
-cmake_minimum_required( VERSION 3.6 )
+cmake_minimum_required(VERSION 3.6)
 
-set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DONLY_C -O2 -DANDROID_ARM_MODE=arm")
+set(lib_name tremolo)
+set(target_name ext_${lib_name})
 
-set (TREMOLO_SRC
-  ${CMAKE_CURRENT_LIST_DIR}/Tremolo/bitwise.c
-	${CMAKE_CURRENT_LIST_DIR}/Tremolo/codebook.c
-	${CMAKE_CURRENT_LIST_DIR}/Tremolo/dsp.c
-	${CMAKE_CURRENT_LIST_DIR}/Tremolo/floor0.c
-	${CMAKE_CURRENT_LIST_DIR}/Tremolo/floor1.c
-	${CMAKE_CURRENT_LIST_DIR}/Tremolo/floor_lookup.c
-	${CMAKE_CURRENT_LIST_DIR}/Tremolo/framing.c
-	${CMAKE_CURRENT_LIST_DIR}/Tremolo/mapping0.c
-	${CMAKE_CURRENT_LIST_DIR}/Tremolo/mdct.c
-	${CMAKE_CURRENT_LIST_DIR}/Tremolo/misc.c
-	${CMAKE_CURRENT_LIST_DIR}/Tremolo/res012.c
-	${CMAKE_CURRENT_LIST_DIR}/Tremolo/treminfo.c
-	${CMAKE_CURRENT_LIST_DIR}/Tremolo/vorbisfile.c
+project(${lib_name})
+
+set(${target_name}_src
+    ./Tremolo/bitwise.c
+    ./Tremolo/codebook.c
+    ./Tremolo/dsp.c
+    ./Tremolo/floor0.c
+    ./Tremolo/floor1.c
+    ./Tremolo/floor_lookup.c
+    ./Tremolo/framing.c
+    ./Tremolo/mapping0.c
+    ./Tremolo/mdct.c
+    ./Tremolo/misc.c
+    ./Tremolo/res012.c
+    ./Tremolo/treminfo.c
+    ./Tremolo/vorbisfile.c
 )
 
-include_directories(
-  ${CMAKE_CURRENT_LIST_DIR}/Tremolo/
+add_library(${target_name} STATIC
+    ${${target_name}_src}
 )
 
-add_library(tremolo STATIC ${TREMOLO_SRC})
+target_compile_definitions(${target_name} PRIVATE ONLY_C)
 
-set_target_properties(tremolo
+target_include_directories(${target_name} PUBLIC .)
+set_target_properties(${target_name}
     PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+    FOLDER "External"
+    LINKER_LANGUAGE C
 )
+

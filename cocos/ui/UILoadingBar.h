@@ -1,5 +1,6 @@
 /****************************************************************************
-Copyright (c) 2013-2017 Chukong Technologies Inc.
+Copyright (c) 2013-2016 Chukong Technologies Inc.
+Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
 
 http://www.cocos2d-x.org
 
@@ -33,8 +34,6 @@ NS_CC_BEGIN
  * @addtogroup ui
  * @{
  */
-
-struct CC_DLL ResourceData;
 
 namespace ui {
     class Scale9Sprite;
@@ -173,8 +172,6 @@ public:
     virtual Size getVirtualRendererSize() const override;
     virtual Node* getVirtualRenderer() override;
     virtual std::string getDescription() const override;
-
-    ResourceData getRenderFile(); 
 
 protected:
     virtual void initRenderer() override;

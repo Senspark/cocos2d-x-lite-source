@@ -1,5 +1,6 @@
 /****************************************************************************
  Copyright (c) 2013 cocos2d-x.org
+ Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
  
  http://www.cocos2d-x.org
  
@@ -110,7 +111,7 @@ public:
     
     /** @brief Function for retrieving the max concurrent task count
      */
-    const int getMaxConcurrentTask() const {return _maxConcurrentTask;};
+    int getMaxConcurrentTask() const {return _maxConcurrentTask;};
     
     /** @brief Function for setting the max concurrent task count
      */

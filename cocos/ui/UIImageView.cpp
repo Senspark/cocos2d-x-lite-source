@@ -1,5 +1,6 @@
 /****************************************************************************
-Copyright (c) 2013-2017 Chukong Technologies Inc.
+Copyright (c) 2013-2016 Chukong Technologies Inc.
+Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
 
 http://www.cocos2d-x.org
 
@@ -26,7 +27,6 @@ THE SOFTWARE.
 #include "ui/UIScale9Sprite.h"
 #include "ui/UIHelper.h"
 #include "2d/CCSprite.h"
-#include "editor-support/cocostudio/CocosStudioExtension.h"
 
 NS_CC_BEGIN
 
@@ -40,11 +40,11 @@ ImageView::ImageView():
 _scale9Enabled(false),
 _prevIgnoreSize(true),
 _capInsets(Rect::ZERO),
-_textureFile(""),
 _imageRenderer(nullptr),
 _imageTexType(TextureResType::LOCAL),
 _imageTextureSize(_contentSize),
-_imageRendererAdaptDirty(true)
+_imageRendererAdaptDirty(true),
+_textureFile("")
 {
 
 }
@@ -293,14 +293,6 @@ void ImageView::copySpecialProperties(Widget *widget)
         }
         setCapInsets(imageView->_capInsets);
     }
-}
-
-ResourceData ImageView::getRenderFile()
-{
-    ResourceData rData;
-    rData.type = (int)_imageTexType;
-    rData.file = _textureFile;
-    return rData;
 }
     
 void ImageView::setGLProgram(GLProgram* glProgram)

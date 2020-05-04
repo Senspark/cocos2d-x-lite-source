@@ -1,5 +1,6 @@
 /****************************************************************************
-Copyright (c) 2013-2017 Chukong Technologies Inc.
+Copyright (c) 2013-2016 Chukong Technologies Inc.
+Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
 
 http://www.cocos2d-x.org
 
@@ -58,7 +59,6 @@ THE SOFTWARE.
 #include "ui/UIEditBox/UIEditBox.h"
 #include "ui/UILayoutComponent.h"
 #include "ui/UITabControl.h"
-#include "editor-support/cocostudio/CocosStudioExtension.h"
 
 /**
  * @addtogroup ui

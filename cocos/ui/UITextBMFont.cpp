@@ -1,5 +1,6 @@
 /****************************************************************************
-Copyright (c) 2013-2017 Chukong Technologies Inc.
+Copyright (c) 2013-2016 Chukong Technologies Inc.
+Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
 
 http://www.cocos2d-x.org
 
@@ -24,7 +25,6 @@ THE SOFTWARE.
 
 #include "ui/UITextBMFont.h"
 #include "2d/CCLabel.h"
-#include "editor-support/cocostudio/CocosStudioExtension.h"
 
 NS_CC_BEGIN
 
@@ -179,14 +179,6 @@ void TextBMFont::copySpecialProperties(Widget *widget)
         setFntFile(labelBMFont->_fntFileName);
         setString(labelBMFont->_stringValue);
     }
-}
-
-ResourceData TextBMFont::getRenderFile()
-{
-    ResourceData rData;
-    rData.type = 0;
-    rData.file = _fntFileName;
-    return rData;
 }
 
 void TextBMFont::resetRender()
