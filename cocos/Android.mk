@@ -246,11 +246,11 @@ LOCAL_STATIC_LIBRARIES += ext_png
 LOCAL_STATIC_LIBRARIES += ext_jpeg
 LOCAL_STATIC_LIBRARIES += ext_tiff
 LOCAL_STATIC_LIBRARIES += ext_webp
-LOCAL_STATIC_LIBRARIES += ext_chipmunk 
+# LOCAL_STATIC_LIBRARIES += ext_chipmunk 
 LOCAL_STATIC_LIBRARIES += ext_zlib
 LOCAL_STATIC_LIBRARIES += ext_ssl
-LOCAL_STATIC_LIBRARIES += ext_recast
-LOCAL_STATIC_LIBRARIES += ext_bullet
+# LOCAL_STATIC_LIBRARIES += ext_recast
+# LOCAL_STATIC_LIBRARIES += ext_bullet
 
 LOCAL_WHOLE_STATIC_LIBRARIES := ccandroid
 LOCAL_WHOLE_STATIC_LIBRARIES += cpufeatures
@@ -277,9 +277,9 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := cc_static
 LOCAL_MODULE_FILENAME := libcc
 
-LOCAL_STATIC_LIBRARIES := ccs
-LOCAL_STATIC_LIBRARIES += ccb
-LOCAL_STATIC_LIBRARIES += cc3d
+# LOCAL_STATIC_LIBRARIES := ccs
+LOCAL_STATIC_LIBRARIES := ccb
+# LOCAL_STATIC_LIBRARIES += cc3d
 LOCAL_STATIC_LIBRARIES += ccnet
 LOCAL_STATIC_LIBRARIES += audio
 LOCAL_STATIC_LIBRARIES += spine
@@ -294,20 +294,20 @@ $(call import-module,zlib/prebuilt/android)
 $(call import-module,jpeg/prebuilt/android)
 $(call import-module,tiff/prebuilt/android)
 $(call import-module,webp/prebuilt/android)
-$(call import-module,chipmunk/prebuilt/android)
-$(call import-module,3d)
+# $(call import-module,chipmunk/prebuilt/android)
+# $(call import-module,3d)
 $(call import-module,audio/android)
 $(call import-module,editor-support/cocosbuilder)
-$(call import-module,editor-support/cocostudio)
+# $(call import-module,editor-support/cocostudio)
 $(call import-module,editor-support/spine)
 $(call import-module,network)
 $(call import-module,ui)
 $(call import-module,extensions)
-$(call import-module,Box2D/prebuilt/android)
-$(call import-module,bullet/prebuilt/android)
-$(call import-module,recast)
+# $(call import-module,Box2D/prebuilt/android)
+# $(call import-module,bullet/prebuilt/android)
+# $(call import-module,recast)
 # $(call import-module,curl/prebuilt/android)
 $(call import-module,websockets/prebuilt/android)
 $(call import-module,openssl/prebuilt/android)
-$(call import-module,flatbuffers)
+# $(call import-module,flatbuffers)
 $(call import-module,uv/prebuilt/android)

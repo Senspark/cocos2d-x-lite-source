@@ -30,8 +30,8 @@ GUI/CCScrollView/CCTableViewCell.cpp
 
 LOCAL_STATIC_LIBRARIES := cc_core
 LOCAL_STATIC_LIBRARIES += ccnet
-LOCAL_STATIC_LIBRARIES += ext_box2d
-LOCAL_STATIC_LIBRARIES += ext_bullet
+# LOCAL_STATIC_LIBRARIES += ext_box2d
+# LOCAL_STATIC_LIBRARIES += ext_bullet
 
 LOCAL_CXXFLAGS += -fexceptions
 
