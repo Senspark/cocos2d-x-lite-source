@@ -25,8 +25,14 @@
 #ifndef _CCB_CCNODELOADERLISTENER_H_
 #define _CCB_CCNODELOADERLISTENER_H_
 
+#include "platform/CCPlatformDefine.h" // For CC_DLL
+
+namespace cocos2d {
+class Node;
+} // namespace cocos2d
 
 namespace cocosbuilder {
+class NodeLoader;
 
 class CC_DLL NodeLoaderListener {
     public:
