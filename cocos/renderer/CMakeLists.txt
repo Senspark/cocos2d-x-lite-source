@@ -1,11 +1,11 @@
 set(COCOS_RENDERER_HEADER
     renderer/CCTextureCache.h
     renderer/CCRenderer.h
-    renderer/CCMaterial.h
+    # renderer/CCMaterial.h
     renderer/ccGLStateCache.h
     renderer/CCRenderCommandPool.h
     renderer/ccShaders.h
-    renderer/CCMeshCommand.h
+    # renderer/CCMeshCommand.h
     renderer/CCGLProgramStateCache.h
     renderer/CCRenderCommand.h
     renderer/CCTextureCube.h
@@ -13,7 +13,7 @@ set(COCOS_RENDERER_HEADER
     renderer/CCGLProgramCache.h
     renderer/CCTextureAtlas.h
     renderer/CCGroupCommand.h
-    renderer/CCVertexAttribBinding.h
+    # renderer/CCVertexAttribBinding.h
     renderer/CCVertexIndexBuffer.h
     renderer/CCVertexIndexData.h
     renderer/CCPrimitive.h
@@ -21,12 +21,12 @@ set(COCOS_RENDERER_HEADER
     renderer/CCCustomCommand.h
     renderer/CCFrameBuffer.h
     renderer/CCQuadCommand.h
-    renderer/CCTechnique.h
+    # renderer/CCTechnique.h
     renderer/CCPrimitiveCommand.h
     renderer/CCGLProgramState.h
     renderer/CCTrianglesCommand.h
     renderer/CCBatchCommand.h
-    renderer/CCPass.h
+    # renderer/CCPass.h
     renderer/CCRenderState.h
     )
 
@@ -38,22 +38,22 @@ set(COCOS_RENDERER_SRC
     renderer/CCGLProgramState.cpp
     renderer/CCGLProgramStateCache.cpp
     renderer/CCGroupCommand.cpp
-    renderer/CCMaterial.cpp
-    renderer/CCMeshCommand.cpp
-    renderer/CCPass.cpp
+    # renderer/CCMaterial.cpp
+    # renderer/CCMeshCommand.cpp
+    # renderer/CCPass.cpp
     renderer/CCPrimitive.cpp
     renderer/CCPrimitiveCommand.cpp
     renderer/CCQuadCommand.cpp
     renderer/CCRenderCommand.cpp
     renderer/CCRenderState.cpp
     renderer/CCRenderer.cpp
-    renderer/CCTechnique.cpp
+    # renderer/CCTechnique.cpp
     renderer/CCTexture2D.cpp
     renderer/CCTextureAtlas.cpp
     renderer/CCTextureCache.cpp
     renderer/CCTextureCube.cpp
     renderer/CCTrianglesCommand.cpp
-    renderer/CCVertexAttribBinding.cpp
+    # renderer/CCVertexAttribBinding.cpp
     renderer/CCVertexIndexBuffer.cpp
     renderer/CCVertexIndexData.cpp
     renderer/ccGLStateCache.cpp
