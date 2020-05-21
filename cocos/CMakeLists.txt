@@ -32,39 +32,41 @@
 # The version number
 set(COCOS2D_X_VERSION 3.17.1)
 
-add_subdirectory(2d)
-add_subdirectory(audio)
-add_subdirectory(base)
-add_subdirectory(deprecated)
-add_subdirectory(math)
-add_subdirectory(network)
-add_subdirectory(platform)
 add_subdirectory(platform/android)
-add_subdirectory(renderer)
-add_subdirectory(ui)
-
-project(cc_version)
-add_library(${PROJECT_NAME} "")
-target_sources(${PROJECT_NAME} PRIVATE cocos2d.cpp)
-target_include_directories(${PROJECT_NAME} PRIVATE .)
 
 project(cc_core)
 add_library(${PROJECT_NAME} "")
-target_sources(${PROJECT_NAME} PRIVATE empty.cpp)
-target_include_directories(${PROJECT_NAME} PUBLIC .)
-target_link_libraries(${PROJECT_NAME}
-    cc_2d
-    cc_audio
-    cc_base
-    cc_deprecated
-    cc_math
-    cc_net
-    cc_platform
-    cc_renderer
-    cc_ui
-    cc_version
-    -Wl,--whole-archive cpp_android_spec -Wl,--no-whole-archive
+target_sources(${PROJECT_NAME} PRIVATE cocos2d.cpp)
+target_include_directories(${PROJECT_NAME}
+    PRIVATE platform
+    PUBLIC .
 )
+target_link_libraries(${PROJECT_NAME}
+    GLESv2
+    log
+    -Wl,--whole-archive cc_platform_android -Wl,--no-whole-archive
+    cc_ext_clipper
+    cc_ext_convertUTF
+    cc_ext_cpufeatures
+    cc_ext_edtaa3func
+    cc_ext_freetype
+    cc_ext_jpeg
+    cc_ext_md5
+    cc_ext_png
+    cc_ext_poly2tri
+    cc_ext_rapidxml
+    cc_ext_tiff
+    cc_ext_tinyxml2
+    cc_ext_unzip
+    cc_ext_webp
+    cc_ext_xxhash
+)
+
+include(2d/CMakeLists.txt)
+include(base/CMakeLists.txt)
+include(math/CMakeLists.txt)
+include(platform/CMakeLists.txt)
+include(renderer/CMakeLists.txt)
 
 # if(XCODE OR VS)
 #     cocos_mark_code_files("cocos2d")

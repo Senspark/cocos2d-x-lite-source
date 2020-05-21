@@ -29,8 +29,11 @@
 cmake_minimum_required(VERSION 3.6)
 
 add_subdirectory(cocos)
+add_subdirectory(cocos/audio)
 add_subdirectory(cocos/editor-support/cocosbuilder)
 add_subdirectory(cocos/editor-support/spine)
+add_subdirectory(cocos/network)
+add_subdirectory(cocos/ui)
 add_subdirectory(extensions)
 add_subdirectory(external)
 
@@ -39,8 +42,10 @@ add_library(${PROJECT_NAME} "")
 target_sources(${PROJECT_NAME} PRIVATE empty.cpp)
 target_link_libraries(${PROJECT_NAME}
     cc_core
-    cc_ccb
+    cc_audio
+    cc_cocosbuilder
     cc_spine
-    cc_ets
-    cc_ext
+    cc_network
+    cc_ui
+    cc_extensions
 )

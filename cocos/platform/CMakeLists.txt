@@ -24,25 +24,23 @@
 
 cmake_minimum_required(VERSION 3.6)
 
-project(cc_platform)
-add_library(${PROJECT_NAME} "")
 target_sources(${PROJECT_NAME} PRIVATE
-    CCDataManager.cpp
-    CCSAXParser.cpp
-    CCThread.cpp
-    CCGLView.cpp
-    CCFileUtils.cpp
-    CCImage.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCDataManager.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCSAXParser.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCThread.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCGLView.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCFileUtils.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCImage.cpp
 )
 
 if(ANDROID)
     # refer to target: cocos/platform/android/CMakeLists.txt
     target_sources(${PROJECT_NAME} PRIVATE
-        android/CCApplication-android.cpp
-        android/CCCommon-android.cpp
-        android/CCGLViewImpl-android.cpp
-        android/CCFileUtils-android.cpp
-        android/CCEnhanceAPI-android.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/android/CCApplication-android.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/android/CCCommon-android.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/android/CCGLViewImpl-android.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/android/CCFileUtils-android.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/android/CCEnhanceAPI-android.cpp
     )
     target_link_libraries(${PROJECT_NAME}
         android
@@ -50,40 +48,28 @@ if(ANDROID)
     )
 elseif(APPLE)
     target_sources(${PROJECT_NAME} PRIVATE
-        apple/CCLock-apple.cpp
-        apple/CCFileUtils-apple.mm
-        apple/CCThread-apple.mm
-        apple/CCDevice-apple.mm
+        ${CMAKE_CURRENT_LIST_DIR}/apple/CCLock-apple.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/apple/CCFileUtils-apple.mm
+        ${CMAKE_CURRENT_LIST_DIR}/apple/CCThread-apple.mm
+        ${CMAKE_CURRENT_LIST_DIR}/apple/CCDevice-apple.mm
     )
     if(MACOSX)
         target_sources(${PROJECT_NAME} PRIVATE
-            mac/CCApplication-mac.mm
-            mac/CCCommon-mac.mm
-            mac/CCDevice-mac.mm
-            desktop/CCGLViewImpl-desktop.cpp
+            ${CMAKE_CURRENT_LIST_DIR}/mac/CCApplication-mac.mm
+            ${CMAKE_CURRENT_LIST_DIR}/mac/CCCommon-mac.mm
+            ${CMAKE_CURRENT_LIST_DIR}/mac/CCDevice-mac.mm
+            ${CMAKE_CURRENT_LIST_DIR}/desktop/CCGLViewImpl-desktop.cpp
         )
     elseif(IOS)
         target_sources(${PROJECT_NAME} PRIVATE
-            ios/CCApplication-ios.mm
-            ios/CCCommon-ios.mm
-            ios/CCDevice-ios.mm
-            ios/CCDirectorCaller-ios.mm
-            ios/CCEAGLView-ios.mm
-            ios/CCES2Renderer-ios.m
-            ios/CCGLViewImpl-ios.mm
-            ios/CCImage-ios.mm
+            ${CMAKE_CURRENT_LIST_DIR}/ios/CCApplication-ios.mm
+            ${CMAKE_CURRENT_LIST_DIR}/ios/CCCommon-ios.mm
+            ${CMAKE_CURRENT_LIST_DIR}/ios/CCDevice-ios.mm
+            ${CMAKE_CURRENT_LIST_DIR}/ios/CCDirectorCaller-ios.mm
+            ${CMAKE_CURRENT_LIST_DIR}/ios/CCEAGLView-ios.mm
+            ${CMAKE_CURRENT_LIST_DIR}/ios/CCES2Renderer-ios.m
+            ${CMAKE_CURRENT_LIST_DIR}/ios/CCGLViewImpl-ios.mm
+            ${CMAKE_CURRENT_LIST_DIR}/ios/CCImage-ios.mm
         )
     endif()
 endif()
-
-target_include_directories(${PROJECT_NAME} PRIVATE . ..)
-target_link_libraries(${PROJECT_NAME}
-    cc_base
-    cc_ext_jpeg
-    cc_ext_png
-    cc_ext_rapidxml
-    cc_ext_tiff
-    cc_ext_tinyxml2
-    cc_ext_unzip
-    cc_ext_webp
-)

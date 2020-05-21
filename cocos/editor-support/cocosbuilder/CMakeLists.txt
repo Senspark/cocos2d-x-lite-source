@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.6)
 
-project(cc_ccb)
+project(cc_cocosbuilder)
 add_library(${PROJECT_NAME} "")
 target_sources(${PROJECT_NAME} PRIVATE
     CCBAnimationManager.cpp
@@ -27,7 +27,4 @@ target_sources(${PROJECT_NAME} PRIVATE
     CCSpriteLoader.cpp
 )
 target_include_directories(${PROJECT_NAME} PUBLIC .. ../..)
-target_link_libraries(${PROJECT_NAME}
-    cc_core
-    cc_ets
-)
+target_link_libraries(${PROJECT_NAME} cc_extensions)

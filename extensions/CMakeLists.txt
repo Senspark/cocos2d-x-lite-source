@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.6)
 
-project(cc_ets)
+project(cc_extensions)
 add_library(${PROJECT_NAME} "")
 target_sources(${PROJECT_NAME} PRIVATE
     assets-manager/AssetsManager.cpp
@@ -24,7 +24,4 @@ target_sources(${PROJECT_NAME} PRIVATE
     GUI/CCScrollView/CCTableViewCell.cpp
 )
 target_include_directories(${PROJECT_NAME} PUBLIC . ..)
-target_link_libraries(${PROJECT_NAME}
-    cc_2d
-    cc_ext_unzip
-)
+target_link_libraries(${PROJECT_NAME} cc_core)

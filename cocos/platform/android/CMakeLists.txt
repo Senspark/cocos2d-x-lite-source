@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.6)
 
-project(cpp_android_spec)
+project(cc_platform_android)
 add_library(${PROJECT_NAME} "")
 target_sources(${PROJECT_NAME} PRIVATE
     CCDevice-android.cpp
@@ -13,7 +13,4 @@ target_sources(${PROJECT_NAME} PRIVATE
     jni/Java_org_cocos2dx_lib_Cocos2dxRenderer.cpp
 )
 target_include_directories(${PROJECT_NAME} PRIVATE ../..)
-target_link_libraries(${PROJECT_NAME}
-    cc_base
-    cc_network
-)
+target_link_libraries(${PROJECT_NAME} cc_core)

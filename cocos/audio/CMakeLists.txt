@@ -66,4 +66,7 @@ elseif(APPLE)
 endif()
 
 target_include_directories(${PROJECT_NAME} PRIVATE ..)
-target_link_libraries(${PROJECT_NAME} cc_ext_pvmp3dec cc_ext_tremolo)
+target_link_libraries(${PROJECT_NAME}
+    cc_ext_pvmp3dec
+    cc_ext_tremolo
+)

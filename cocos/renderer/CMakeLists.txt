@@ -1,35 +1,27 @@
 cmake_minimum_required(VERSION 3.6)
 
-project(cc_renderer)
-add_library(${PROJECT_NAME} "")
 target_sources(${PROJECT_NAME} PRIVATE
-    CCBatchCommand.cpp
-    CCCustomCommand.cpp
-    CCGLProgram.cpp
-    CCGLProgramCache.cpp
-    CCGLProgramState.cpp
-    CCGLProgramStateCache.cpp
-    CCGroupCommand.cpp
-    CCPrimitive.cpp
-    CCPrimitiveCommand.cpp
-    CCQuadCommand.cpp
-    CCRenderCommand.cpp
-    CCRenderState.cpp
-    CCRenderer.cpp
-    CCTexture2D.cpp
-    CCTextureAtlas.cpp
-    CCTextureCache.cpp
-    CCTextureCube.cpp
-    CCTrianglesCommand.cpp
-    CCVertexIndexBuffer.cpp
-    CCVertexIndexData.cpp
-    ccGLStateCache.cpp
-    ccShaders.cpp
-    CCFrameBuffer.cpp
-)
-target_include_directories(${PROJECT_NAME} PRIVATE ..)
-target_link_libraries(${PROJECT_NAME}
-    GLESv2
-    cc_platform
-    cc_ext_xxhash
+    ${CMAKE_CURRENT_LIST_DIR}/CCBatchCommand.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCCustomCommand.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCGLProgram.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCGLProgramCache.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCGLProgramState.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCGLProgramStateCache.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCGroupCommand.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCPrimitive.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCPrimitiveCommand.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCQuadCommand.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCRenderCommand.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCRenderState.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCRenderer.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCTexture2D.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCTextureAtlas.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCTextureCache.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCTextureCube.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCTrianglesCommand.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCVertexIndexBuffer.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCVertexIndexData.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/ccGLStateCache.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/ccShaders.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/CCFrameBuffer.cpp
 )
