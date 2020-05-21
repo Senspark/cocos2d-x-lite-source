@@ -1,11 +1,9 @@
 cmake_minimum_required(VERSION 3.6)
 
-set(lib_name tremolo)
-set(target_name ext_${lib_name})
-
-project(${lib_name})
-
-set(${target_name}_src
+project(cc_ext_tremolo)
+add_library(${PROJECT_NAME} "")
+target_compile_definitions(${PROJECT_NAME} PRIVATE ONLY_C)
+target_sources(${PROJECT_NAME} PRIVATE
     ./Tremolo/bitwise.c
     ./Tremolo/codebook.c
     ./Tremolo/dsp.c
@@ -20,19 +18,6 @@ set(${target_name}_src
     ./Tremolo/treminfo.c
     ./Tremolo/vorbisfile.c
 )
-
-add_library(${target_name} STATIC
-    ${${target_name}_src}
-)
-
-target_compile_definitions(${target_name} PRIVATE ONLY_C)
-
-target_include_directories(${target_name} PUBLIC .)
-set_target_properties(${target_name}
-    PROPERTIES
-    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
-    FOLDER "External"
-    LINKER_LANGUAGE C
-)
+target_include_directories(${PROJECT_NAME} PUBLIC .)
+set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE C)
 

@@ -1,62 +1,35 @@
-set(COCOS_RENDERER_HEADER
-    renderer/CCTextureCache.h
-    renderer/CCRenderer.h
-    # renderer/CCMaterial.h
-    renderer/ccGLStateCache.h
-    renderer/CCRenderCommandPool.h
-    renderer/ccShaders.h
-    # renderer/CCMeshCommand.h
-    renderer/CCGLProgramStateCache.h
-    renderer/CCRenderCommand.h
-    renderer/CCTextureCube.h
-    renderer/CCGLProgram.h
-    renderer/CCGLProgramCache.h
-    renderer/CCTextureAtlas.h
-    renderer/CCGroupCommand.h
-    # renderer/CCVertexAttribBinding.h
-    renderer/CCVertexIndexBuffer.h
-    renderer/CCVertexIndexData.h
-    renderer/CCPrimitive.h
-    renderer/CCTexture2D.h
-    renderer/CCCustomCommand.h
-    renderer/CCFrameBuffer.h
-    renderer/CCQuadCommand.h
-    # renderer/CCTechnique.h
-    renderer/CCPrimitiveCommand.h
-    renderer/CCGLProgramState.h
-    renderer/CCTrianglesCommand.h
-    renderer/CCBatchCommand.h
-    # renderer/CCPass.h
-    renderer/CCRenderState.h
-    )
+cmake_minimum_required(VERSION 3.6)
 
-set(COCOS_RENDERER_SRC
-    renderer/CCBatchCommand.cpp
-    renderer/CCCustomCommand.cpp
-    renderer/CCGLProgram.cpp
-    renderer/CCGLProgramCache.cpp
-    renderer/CCGLProgramState.cpp
-    renderer/CCGLProgramStateCache.cpp
-    renderer/CCGroupCommand.cpp
-    # renderer/CCMaterial.cpp
-    # renderer/CCMeshCommand.cpp
-    # renderer/CCPass.cpp
-    renderer/CCPrimitive.cpp
-    renderer/CCPrimitiveCommand.cpp
-    renderer/CCQuadCommand.cpp
-    renderer/CCRenderCommand.cpp
-    renderer/CCRenderState.cpp
-    renderer/CCRenderer.cpp
-    # renderer/CCTechnique.cpp
-    renderer/CCTexture2D.cpp
-    renderer/CCTextureAtlas.cpp
-    renderer/CCTextureCache.cpp
-    renderer/CCTextureCube.cpp
-    renderer/CCTrianglesCommand.cpp
-    # renderer/CCVertexAttribBinding.cpp
-    renderer/CCVertexIndexBuffer.cpp
-    renderer/CCVertexIndexData.cpp
-    renderer/ccGLStateCache.cpp
-    renderer/ccShaders.cpp
-    renderer/CCFrameBuffer.cpp
-    )
+project(cc_renderer)
+add_library(${PROJECT_NAME} "")
+target_sources(${PROJECT_NAME} PRIVATE
+    CCBatchCommand.cpp
+    CCCustomCommand.cpp
+    CCGLProgram.cpp
+    CCGLProgramCache.cpp
+    CCGLProgramState.cpp
+    CCGLProgramStateCache.cpp
+    CCGroupCommand.cpp
+    CCPrimitive.cpp
+    CCPrimitiveCommand.cpp
+    CCQuadCommand.cpp
+    CCRenderCommand.cpp
+    CCRenderState.cpp
+    CCRenderer.cpp
+    CCTexture2D.cpp
+    CCTextureAtlas.cpp
+    CCTextureCache.cpp
+    CCTextureCube.cpp
+    CCTrianglesCommand.cpp
+    CCVertexIndexBuffer.cpp
+    CCVertexIndexData.cpp
+    ccGLStateCache.cpp
+    ccShaders.cpp
+    CCFrameBuffer.cpp
+)
+target_include_directories(${PROJECT_NAME} PRIVATE ..)
+target_link_libraries(${PROJECT_NAME}
+    GLESv2
+    cc_platform
+    cc_ext_xxhash
+)

@@ -1,27 +1,18 @@
-set(COCOS_MATH_HEADER
-    math/Vec2.h
-    math/Mat4.h
-    math/Quaternion.h
-    math/TransformUtils.h
-    math/Vec4.h
-    math/CCAffineTransform.h
-    math/CCGeometry.h
-    math/CCVertex.h
-    math/Vec3.h
-    math/CCMathBase.h
-    math/MathUtil.h
-    math/CCMath.h
-    )
+cmake_minimum_required(VERSION 3.6)
 
-set(COCOS_MATH_SRC
-    math/CCAffineTransform.cpp
-    math/CCGeometry.cpp
-    math/CCVertex.cpp
-    math/Mat4.cpp
-    math/MathUtil.cpp
-    math/Quaternion.cpp
-    math/TransformUtils.cpp
-    math/Vec2.cpp
-    math/Vec3.cpp
-    math/Vec4.cpp
-    )
+project(cc_math)
+add_library(${PROJECT_NAME} "")
+target_sources(${PROJECT_NAME} PRIVATE
+    CCAffineTransform.cpp
+    CCGeometry.cpp
+    CCVertex.cpp
+    Mat4.cpp
+    MathUtil.cpp
+    Quaternion.cpp
+    TransformUtils.cpp
+    Vec2.cpp
+    Vec3.cpp
+    Vec4.cpp
+)
+target_include_directories(${PROJECT_NAME} PRIVATE ..)
+target_link_libraries(${PROJECT_NAME} cc_ext_cpufeatures)

@@ -1,145 +1,76 @@
-if(WINDOWS)
-    set(COCOS_UI_SPECIFIC_HEADER
-        ui/UIEditBox/UIEditBoxImpl-win32.h
-        )
-    set(COCOS_UI_SPECIFIC_SRC
-        ui/UIEditBox/UIEditBoxImpl-win32.cpp
-        )
-elseif(APPLE)
+cmake_minimum_required(VERSION 3.6)
+
+project(cc_ui)
+add_library(${PROJECT_NAME} "")
+target_sources(${PROJECT_NAME} PRIVATE
+    CocosGUI.cpp
+    UIButton.cpp
+    UIAbstractCheckButton.cpp
+    UICheckBox.cpp
+    UIRadioButton.cpp
+    UIDeprecated.cpp
+    UIHBox.cpp
+    UIHelper.cpp
+    UIImageView.cpp
+    UILayout.cpp
+    UILayoutManager.cpp
+    UILayoutParameter.cpp
+    UIListView.cpp
+    UILoadingBar.cpp
+    UIPageView.cpp
+    UIPageViewIndicator.cpp
+    UIRelativeBox.cpp
+    UIRichText.cpp
+    UIScale9Sprite.cpp
+    UIScrollView.cpp
+    UIScrollViewBar.cpp
+    UISlider.cpp
+    UIText.cpp
+    UITextAtlas.cpp
+    UITextBMFont.cpp
+    UITextField.cpp
+    UIVBox.cpp
+    UIWidget.cpp
+    UIEditBox/UIEditBox.cpp
+    UILayoutComponent.cpp
+    UIEditBox/UIEditBoxImpl-common.cpp
+    UITabControl.cpp
+)
+
+if(APPLE)
     if(MACOSX)
-        set(COCOS_UI_SPECIFIC_HEADER
-            ui/UIEditBox/UIEditBoxImpl-mac.h
-            ui/UIEditBox/Mac/CCUIPasswordTextField.h
-            ui/UIEditBox/Mac/CCUIMultilineTextField.h
-            ui/UIEditBox/Mac/CCUITextInput.h
-            ui/UIEditBox/Mac/CCUIEditBoxMac.h
-            ui/UIEditBox/Mac/CCUISingleLineTextField.h
-            ui/UIEditBox/Mac/CCUITextFieldFormatter.h
-            )
-        set(COCOS_UI_SPECIFIC_SRC
-            ui/UIEditBox/UIEditBoxImpl-mac.mm
-            ui/UIEditBox/Mac/CCUIEditBoxMac.mm
-            ui/UIEditBox/Mac/CCUIMultilineTextField.m
-            ui/UIEditBox/Mac/CCUIPasswordTextField.m
-            ui/UIEditBox/Mac/CCUISingleLineTextField.m
-            ui/UIEditBox/Mac/CCUITextFieldFormatter.m
-            )
+        target_sources(${PROJECT_NAME} PRIVATE
+            UIEditBox/UIEditBoxImpl-mac.mm
+            UIEditBox/Mac/CCUIEditBoxMac.mm
+            UIEditBox/Mac/CCUIMultilineTextField.m
+            UIEditBox/Mac/CCUIPasswordTextField.m
+            UIEditBox/Mac/CCUISingleLineTextField.m
+            UIEditBox/Mac/CCUITextFieldFormatter.m
+        )
     elseif(IOS)
-        set(COCOS_UI_SPECIFIC_HEADER
-            ui/UIWebView.h
-            ui/UIVideoPlayer.h
-            ui/UIWebViewImpl-ios.h
-            ui/UIEditBox/UIEditBoxImpl-ios.h
-            ui/UIEditBox/iOS/CCUIEditBoxIOS.h
-            ui/UIEditBox/iOS/CCUIMultilineTextField.h
-            ui/UIEditBox/iOS/CCUITextInput.h
-            ui/UIEditBox/iOS/UITextView+CCUITextInput.h
-            ui/UIEditBox/iOS/UITextField+CCUITextInput.h
-            ui/UIEditBox/iOS/CCUISingleLineTextField.h
-            )
-        set(COCOS_UI_SPECIFIC_SRC
-            ui/UIWebView.mm
-            ui/UIVideoPlayer-ios.mm
-            ui/UIWebViewImpl-ios.mm
-            ui/UIEditBox/UIEditBoxImpl-ios.mm
-            ui/UIEditBox/iOS/CCUIEditBoxIOS.mm
-            ui/UIEditBox/iOS/CCUIMultilineTextField.mm
-            ui/UIEditBox/iOS/CCUISingleLineTextField.mm
-            ui/UIEditBox/iOS/UITextField+CCUITextInput.mm
-            ui/UIEditBox/iOS/UITextView+CCUITextInput.mm
-            )
+        target_sources(${PROJECT_NAME} PRIVATE
+            UIWebView.mm
+            UIVideoPlayer-ios.mm
+            UIWebViewImpl-ios.mm
+            UIEditBox/UIEditBoxImpl-ios.mm
+            UIEditBox/iOS/CCUIEditBoxIOS.mm
+            UIEditBox/iOS/CCUIMultilineTextField.mm
+            UIEditBox/iOS/CCUISingleLineTextField.mm
+            UIEditBox/iOS/UITextField+CCUITextInput.mm
+            UIEditBox/iOS/UITextView+CCUITextInput.mm
+        )
     endif()
-elseif(LINUX)
-    set(COCOS_UI_SPECIFIC_HEADER
-        ui/UIEditBox/UIEditBoxImpl-linux.h
-        )
-    set(COCOS_UI_SPECIFIC_SRC
-        ui/UIEditBox/UIEditBoxImpl-linux.cpp
-        )
 elseif(ANDROID)
-    set(COCOS_UI_SPECIFIC_HEADER
-        ui/UIWebView.h
-        ui/UIVideoPlayer.h
-        ui/UIWebViewImpl-android.h
-        ui/UIEditBox/UIEditBoxImpl-android.h
-        )
-    set(COCOS_UI_SPECIFIC_SRC
-        ui/UIEditBox/UIEditBoxImpl-android.cpp
-        ui/UIVideoPlayer-android.cpp
-        ui/UIWebViewImpl-android.cpp
+    target_sources(${PROJECT_NAME} PRIVATE
+        UIEditBox/UIEditBoxImpl-android.cpp
+        UIVideoPlayer-android.cpp
+        UIWebViewImpl-android.cpp
         # it's special for android, not a common file
-        ui/UIWebView.cpp
-        )
+        UIWebView.cpp
+    )
 endif()
 
-set(COCOS_UI_HEADER
-    ${COCOS_UI_SPECIFIC_HEADER}
-    ui/CocosGUI.h
-    ui/GUIDefine.h
-    ui/GUIExport.h
-    ui/UIAbstractCheckButton.h
-    ui/UIButton.h
-    ui/UICheckBox.h
-    ui/UIDeprecated.h
-    ui/UIHBox.h
-    ui/UIHelper.h
-    ui/UIImageView.h
-    ui/UILayout.h
-    ui/UILayoutComponent.h
-    ui/UILayoutManager.h
-    ui/UILayoutParameter.h
-    ui/UIListView.h
-    ui/UILoadingBar.h
-    ui/UIPageView.h
-    ui/UIPageViewIndicator.h
-    ui/UIRadioButton.h
-    ui/UIRelativeBox.h
-    ui/UIRichText.h
-    ui/UIScale9Sprite.h
-    ui/UIScrollView.h
-    ui/UIScrollViewBar.h
-    ui/UISlider.h
-    ui/UITabControl.h
-    ui/UIText.h
-    ui/UITextAtlas.h
-    ui/UITextBMFont.h
-    ui/UITextField.h
-    ui/UIVBox.h
-    ui/UIWidget.h
-    )
-
-set(COCOS_UI_SRC
-    ${COCOS_UI_SPECIFIC_SRC}
-    ui/CocosGUI.cpp
-    ui/UIButton.cpp
-    ui/UIAbstractCheckButton.cpp
-    ui/UICheckBox.cpp
-    ui/UIRadioButton.cpp
-    ui/UIDeprecated.cpp
-    ui/UIHBox.cpp
-    ui/UIHelper.cpp
-    ui/UIImageView.cpp
-    ui/UILayout.cpp
-    ui/UILayoutManager.cpp
-    ui/UILayoutParameter.cpp
-    ui/UIListView.cpp
-    ui/UILoadingBar.cpp
-    ui/UIPageView.cpp
-    ui/UIPageViewIndicator.cpp
-    ui/UIRelativeBox.cpp
-    ui/UIRichText.cpp
-    ui/UIScale9Sprite.cpp
-    ui/UIScrollView.cpp
-    ui/UIScrollViewBar.cpp
-    ui/UISlider.cpp
-    ui/UIText.cpp
-    ui/UITextAtlas.cpp
-    ui/UITextBMFont.cpp
-    ui/UITextField.cpp
-    ui/UIVBox.cpp
-    ui/UIWidget.cpp
-    ui/UIEditBox/UIEditBox.cpp
-    ui/UILayoutComponent.cpp
-    ui/UIEditBox/UIEditBoxImpl-common.cpp
-    ui/UITabControl.cpp
-    )
+target_include_directories(${PROJECT_NAME} PRIVATE ..)
+target_link_libraries(${PROJECT_NAME}
+    cc_base
+)
