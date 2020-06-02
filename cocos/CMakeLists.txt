@@ -51,29 +51,29 @@ include(audio/CMakeLists.txt)
 # include(storage/CMakeLists.txt)
 
 # default value for cocos2dx extensions modules build
-option(BUILD_EDITOR_COCOSBUILDER "Build editor support for cocosbuilder" ON)
-option(BUILD_EDITOR_COCOSTUDIO "Build editor support for cocostudio" ON)
-option(BUILD_EDITOR_SPINE "Build editor support for spine" ON)
-option(BUILD_EXTENSIONS "Build extension library" ON)
+# option(BUILD_EDITOR_COCOSBUILDER "Build editor support for cocosbuilder" ON)
+# option(BUILD_EDITOR_COCOSTUDIO "Build editor support for cocostudio" ON)
+# option(BUILD_EDITOR_SPINE "Build editor support for spine" ON)
+# option(BUILD_EXTENSIONS "Build extension library" ON)
 
-if(BUILD_EDITOR_COCOSBUILDER)
-    include(editor-support/cocosbuilder/CMakeLists.txt)
-    set(COCOS_EDITOR_SUPPORT_SRC ${COCOS_EDITOR_SUPPORT_SRC} ${COCOS_CCB_SRC} ${COCOS_CCB_HEADER})
-endif(BUILD_EDITOR_COCOSBUILDER)
+# if(BUILD_EDITOR_COCOSBUILDER)
+include(editor-support/cocosbuilder/CMakeLists.txt)
+set(COCOS_EDITOR_SUPPORT_SRC ${COCOS_EDITOR_SUPPORT_SRC} ${COCOS_CCB_SRC} ${COCOS_CCB_HEADER})
+# endif(BUILD_EDITOR_COCOSBUILDER)
 
-if(BUILD_EDITOR_COCOSTUDIO)
-    include(editor-support/cocostudio/CMakeLists.txt)
-    set(COCOS_EDITOR_SUPPORT_SRC ${COCOS_EDITOR_SUPPORT_SRC} ${COCOS_CS_SRC} ${COCOS_CS_HEADER})
-endif(BUILD_EDITOR_COCOSTUDIO)
+# if(BUILD_EDITOR_COCOSTUDIO)
+#     include(editor-support/cocostudio/CMakeLists.txt)
+#     set(COCOS_EDITOR_SUPPORT_SRC ${COCOS_EDITOR_SUPPORT_SRC} ${COCOS_CS_SRC} ${COCOS_CS_HEADER})
+# endif(BUILD_EDITOR_COCOSTUDIO)
 
-if(BUILD_EDITOR_SPINE)
-    include(editor-support/spine/CMakeLists.txt)
-    set(COCOS_EDITOR_SUPPORT_SRC ${COCOS_EDITOR_SUPPORT_SRC} ${COCOS_SPINE_SRC} ${COCOS_SPINE_HEADER})
-endif(BUILD_EDITOR_SPINE)
+# if(BUILD_EDITOR_SPINE)
+include(editor-support/spine/CMakeLists.txt)
+set(COCOS_EDITOR_SUPPORT_SRC ${COCOS_EDITOR_SUPPORT_SRC} ${COCOS_SPINE_SRC} ${COCOS_SPINE_HEADER})
+# endif(BUILD_EDITOR_SPINE)
 
-if(BUILD_EXTENSIONS)
-    include(../extensions/CMakeLists.txt)
-endif(BUILD_EXTENSIONS)
+# if(BUILD_EXTENSIONS)
+include(../extensions/CMakeLists.txt)
+# endif(BUILD_EXTENSIONS)
 
 set(COCOS_HEADER cocos2d.h
     ${COCOS_2D_HEADER}
