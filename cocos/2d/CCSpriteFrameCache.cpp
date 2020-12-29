@@ -389,16 +389,10 @@ void SpriteFrameCache::addSpriteFramesWithFile(const std::string& plist)
 
         // remove .xxx
         size_t startPos = texturePath.find_last_of('.'); 
-        if(startPos != string::npos)
-        {
-            texturePath = texturePath.erase(startPos);
-        }
+        texturePath = texturePath.erase(startPos);
 
         // append .png
-        if(startPos != string::npos)
-        {
-            texturePath = texturePath.erase(startPos);
-        }
+        texturePath = texturePath.append(".png");
 
         CCLOG("cocos2d: SpriteFrameCache: Trying to use file %s as texture", texturePath.c_str());
     }

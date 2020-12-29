@@ -27,7 +27,6 @@
 
 #include "renderer/CCRenderState.h"
 
-#include <cctype>
 #include <string>
 
 #include "renderer/CCTexture2D.h"
@@ -481,8 +480,7 @@ static RenderState::Blend parseBlend(const std::string& value)
 {
     // Convert the string to uppercase for comparison.
     std::string upper(value);
-    std::transform(upper.begin(), upper.end(), upper.begin(), [](unsigned char c) {
-        return std::toupper(c);});
+    std::transform(upper.begin(), upper.end(), upper.begin(), (int(*)(int))toupper);
     if (upper == "ZERO")
         return RenderState::BLEND_ZERO;
     else if (upper == "ONE")
