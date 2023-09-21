@@ -155,7 +155,7 @@ public class Cocos2dxHelper {
                 Log.d(TAG, "android version is lower than 17");
             }
 
-            nativeSetAudioDeviceInfo(isSupportLowLatency, sampleRate, bufferSizeInFrames);
+//            nativeSetAudioDeviceInfo(isSupportLowLatency, sampleRate, bufferSizeInFrames);
 
             final ApplicationInfo applicationInfo = activity.getApplicationInfo();
             
