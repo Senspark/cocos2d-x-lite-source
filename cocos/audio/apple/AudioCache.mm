@@ -25,9 +25,6 @@
 
 #define LOG_TAG "AudioCache"
 
-#include "platform/CCPlatformConfig.h"
-#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC
-
 #include "audio/apple/AudioCache.h"
 
 #import <Foundation/Foundation.h>
@@ -38,6 +35,7 @@
 
 #include "audio/apple/AudioDecoder.h"
 
+#define VERY_VERY_VERBOSE_LOGGING
 #ifdef VERY_VERY_VERBOSE_LOGGING
 #define ALOGVV ALOGV
 #else
@@ -49,7 +47,7 @@ unsigned int __idIndex = 0;
 }
 
 #define INVALID_AL_BUFFER_ID 0xFFFFFFFF
-#define PCMDATA_CACHEMAXSIZE 1048576
+#define PCMDATA_CACHEMAXSIZE 20485760 //20M cache // https://github.com/cocos2d/cocos2d-x/issues/19480
 
 @interface NSTimerWrapper : NSObject
 {
@@ -89,7 +87,6 @@ unsigned int __idIndex = 0;
 @end
 
 using namespace cocos2d;
-using namespace cocos2d::experimental;
 
 AudioCache::AudioCache()
 : _format(-1)
@@ -405,5 +402,3 @@ void AudioCache::invokingLoadCallbacks()
         _loadCallbacks.clear();
     });
 }
-
-#endif
