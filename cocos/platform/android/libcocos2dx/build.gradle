@@ -1,11 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 29
+    namespace "org.cocos2dx.lib"
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 29
+        minSdkVersion 19
+        targetSdkVersion rootProject.targetSdkVersion
+        compileSdk rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
     }
@@ -22,9 +23,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildFeatures {
+        aidl true
+    }
 }
 
 dependencies {
     implementation fileTree(dir: '../java/libs', include: ['*.jar'])
-    implementation 'com.getkeepsafe.relinker:relinker:1.4.1'
+    implementation 'com.getkeepsafe.relinker:relinker:1.4.5'
 }
