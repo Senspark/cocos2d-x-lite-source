@@ -114,9 +114,22 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
             ApplicationInfo ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
             Bundle bundle = ai.metaData;
             String libName = bundle.getString("android.app.lib_name");
-            ReLinker.loadLibrary(this, libName);
+            
+            // Try ReLinker first with better error handling
+            try {
+                ReLinker.loadLibrary(this, libName);
+                Log.d(TAG, "Successfully loaded native library: " + libName);
+            } catch (Exception e) {
+                Log.w(TAG, "ReLinker failed to load " + libName + ", trying System.loadLibrary", e);
+                // Fallback to system loader
+                System.loadLibrary(libName);
+                Log.d(TAG, "Successfully loaded native library using System.loadLibrary: " + libName);
+            }
+            
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e(TAG, "Failed to load native library", e);
+            // Re-throw to let the system handle it, but with better logging
+            throw new RuntimeException("Native library loading failed: " + e.getMessage(), e);
         }
     }
     
