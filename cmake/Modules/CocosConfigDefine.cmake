@@ -133,3 +133,13 @@ endfunction()
         )
     endif()
  endfunction()
+
+ # Set 16KB page size alignment for Android targets (Google Play compliance)
+ function(use_cocos2dx_linker_options target)
+    if(ANDROID)
+        target_link_options(${target} PRIVATE
+            -Wl,-z,max-page-size=16384
+        )
+        message(STATUS "16KB page size alignment applied to ${target}")
+    endif()
+ endfunction()
