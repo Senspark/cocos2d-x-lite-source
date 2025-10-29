@@ -126,6 +126,7 @@ target_link_libraries(cocos2d external)
 # add base macro define and compile options
 use_cocos2dx_compile_define(cocos2d)
 use_cocos2dx_compile_options(cocos2d)
+use_cocos2dx_linker_options(cocos2d)
 
 # use all platform related system libs
 use_cocos2dx_libs_depend(cocos2d)
