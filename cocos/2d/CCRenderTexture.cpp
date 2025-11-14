@@ -323,43 +323,25 @@ bool RenderTexture::initWithWidthAndHeight(int w, int h, Texture2D::PixelFormat 
 
 void RenderTexture::setupDepthAndStencil(int powW, int powH)
 {
-                                    
-#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    if(Configuration::getInstance()->supportsOESPackedDepthStencil())
-    {
-        //create and attach depth buffer
-        glGenRenderbuffers(1, &_depthRenderBuffer);
-        glBindRenderbuffer(GL_RENDERBUFFER, _depthRenderBuffer);
-        glRenderbufferStorage(GL_RENDERBUFFER, _depthAndStencilFormat, (GLsizei)powW, (GLsizei)powH);
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depthRenderBuffer);
 
-        // if depth format is the one with stencil part, bind same render buffer as stencil attachment
-        if (_depthAndStencilFormat == GL_DEPTH24_STENCIL8)
-        {
-            glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _depthRenderBuffer);
-        }
-    }
-    else
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    // Always use packed depth-stencil format on Android
+    // All devices with Android API 21+ (minSdk) support packed depth-stencil
+    // either as GL_OES_packed_depth_stencil extension (GLES 2.0)
+    // or as a core feature (GLES 3.0+)
+    // The separate buffer fallback is not valid in GLES 3.0+ and causes
+    // GL_FRAMEBUFFER_UNSUPPORTED errors on modern devices
+
+    //create and attach depth buffer
+    glGenRenderbuffers(1, &_depthRenderBuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _depthRenderBuffer);
+    glRenderbufferStorage(GL_RENDERBUFFER, _depthAndStencilFormat, (GLsizei)powW, (GLsizei)powH);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depthRenderBuffer);
+
+    // if depth format is the one with stencil part, bind same render buffer as stencil attachment
+    if (_depthAndStencilFormat == GL_DEPTH24_STENCIL8)
     {
-        glGenRenderbuffers(1, &_depthRenderBuffer);
-        glGenRenderbuffers(1, &_stencilRenderBuffer);
-        glBindRenderbuffer(GL_RENDERBUFFER, _depthRenderBuffer);
-        
-        if(Configuration::getInstance()->supportsOESDepth24())
-        {
-            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24_OES, (GLsizei)powW, (GLsizei)powH);
-        }
-        else
-        {
-            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, (GLsizei)powW, (GLsizei)powH);
-        }
-        
-        glBindRenderbuffer(GL_RENDERBUFFER, _stencilRenderBuffer);
-        glRenderbufferStorage(GL_RENDERBUFFER, GL_STENCIL_INDEX8,  (GLsizei)powW, (GLsizei)powH);
-        
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depthRenderBuffer);
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER,
-                                  GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilRenderBuffer);
+        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _depthRenderBuffer);
     }
 #else
     //create and attach depth buffer
